@@ -32,6 +32,6 @@
     "react-motion": "https://npmcdn.com/react-motion/bower.zip",
     "melon-core": "^0.3.0",
     "moment": "^2.13.0",
-    "melon": "^0.2.31"
+    "melon": "^0.3.0"
   }
 }
