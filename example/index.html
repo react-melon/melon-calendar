@@ -17,7 +17,7 @@
 require.config({
     baseUrl: '.',
     paths: {
-        'melon': '../src',
+        'melon': '../dep/melon/dist',
         'react': '../dep/react/react-with-addons',
         'react-motion': '../dep/react-motion/build/react-motion',
         'react-dom': '../dep/react/react-dom',
@@ -34,7 +34,7 @@ require(['react', 'react-dom', 'App', 'config'], function (React, ReactDOM, App,
     function dispatch() {
 
         var hash = window.location.hash;
-        var name = hash ? hash.slice(2) : 'Button';
+        var name = hash ? hash.slice(2) : 'Calendar';
 
         // ReactDOM.render(
         //     React.createElement(

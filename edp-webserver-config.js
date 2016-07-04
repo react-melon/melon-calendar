@@ -29,7 +29,6 @@ exports.getLocations = function () {
                 stylus({
                     'use': nib(),
                     'resolve url': true,
-                    'resolve url nocheck': true,
                     'paths': [require('path').join(__dirname, 'dep')]
                 })
             ]

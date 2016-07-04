@@ -7,6 +7,7 @@ import React from 'react';
 import Nav from './common/Nav';
 
 class App extends React.Component {
+
     render() {
         const {components, name, Component} = this.props;
         return (
@@ -16,6 +17,7 @@ class App extends React.Component {
             </div>
         );
     }
+
     renderContent(Component) {
         return Component
             ? React.createElement(Component)

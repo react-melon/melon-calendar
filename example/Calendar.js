@@ -5,9 +5,9 @@
 
 import React from 'react';
 
-import Title from '../src/Title';
-import Calendar from '../src/Calendar';
+import Title from 'melon/Title';
 
+import Calendar from '../src/Calendar';
 import RangeCalendar from '../src/RangeCalendar';
 import UnitCalendar from '../src/UnitCalendar';
 
