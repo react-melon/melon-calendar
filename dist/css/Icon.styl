@@ -1,0 +1,1717 @@
+@require './base.styl'
+
+@font-face
+    font-family: 'melon'
+    src:url('../font/melon.eot?4d6t69')
+    src:url('../font/melon.eot?#iefix4d6t69') format('embedded-opentype'),
+        url('../font/melon.ttf?4d6t69') format('truetype'),
+        url('../font/melon.woff?4d6t69') format('woff'),
+        url('../font/melon.svg?4d6t69#melon') format('svg')
+    font-weight: normal
+    font-style: normal
+
+
+.ui-icon
+    font-family: 'melon'
+    speak: none
+    font-style: normal
+    font-weight: normal
+    font-variant: normal
+    text-transform: none
+    line-height: 1
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+
+
+[data-icon='3d-rotation']:before
+    content: "\e900";
+[data-icon='ac-unit']:before
+    content: "\e901"
+[data-icon='alarm']:before
+    content: "\e902"
+[data-icon='access-alarms']:before
+    content: "\e903"
+[data-icon='schedule']:before
+    content: "\e904"
+[data-icon='accessibility']:before
+    content: "\e905"
+[data-icon='accessible']:before
+    content: "\e906"
+[data-icon='account-balance']:before
+    content: "\e907"
+[data-icon='account-balance-wallet']:before
+    content: "\e908"
+[data-icon='account-box']:before
+    content: "\e909"
+[data-icon='account-circle']:before
+    content: "\e90a"
+[data-icon='adb']:before
+    content: "\e90b"
+[data-icon='add']:before
+    content: "\e90c"
+[data-icon='add-a-photo']:before
+    content: "\e90d"
+[data-icon='alarm-add']:before
+    content: "\e90e"
+[data-icon='add-alert']:before
+    content: "\e90f"
+[data-icon='add-box']:before
+    content: "\e910"
+[data-icon='add-circle']:before
+    content: "\e911"
+[data-icon='control-point']:before
+    content: "\e912"
+[data-icon='add-location']:before
+    content: "\e913"
+[data-icon='add-shopping-cart']:before
+    content: "\e914"
+[data-icon='queue']:before
+    content: "\e915"
+[data-icon='add-to-queue']:before
+    content: "\e916"
+[data-icon='adjust']:before
+    content: "\e917"
+[data-icon='airline-seat-flat']:before
+    content: "\e918"
+[data-icon='airline-seat-flat-angled']:before
+    content: "\e919"
+[data-icon='airline-seat-individual-suite']:before
+    content: "\e91a"
+[data-icon='airline-seat-legroom-extra']:before
+    content: "\e91b"
+[data-icon='airline-seat-legroom-normal']:before
+    content: "\e91c"
+[data-icon='airline-seat-legroom-reduced']:before
+    content: "\e91d"
+[data-icon='airline-seat-recline-extra']:before
+    content: "\e91e"
+[data-icon='airline-seat-recline-normal']:before
+    content: "\e91f"
+[data-icon='flight']:before
+    content: "\e920"
+[data-icon='airplanemode-inactive']:before
+    content: "\e921"
+[data-icon='airplay']:before
+    content: "\e922"
+[data-icon='airport-shuttle']:before
+    content: "\e923"
+[data-icon='alarm-off']:before
+    content: "\e924"
+[data-icon='alarm-on']:before
+    content: "\e925"
+[data-icon='album']:before
+    content: "\e926"
+[data-icon='all-inclusive']:before
+    content: "\e927"
+[data-icon='all-out']:before
+    content: "\e928"
+[data-icon='android']:before
+    content: "\e929"
+[data-icon='announcement']:before
+    content: "\e92a"
+[data-icon='apps']:before
+    content: "\e92b"
+[data-icon='archive']:before
+    content: "\e92c"
+[data-icon='arrow-back']:before
+    content: "\e92d"
+[data-icon='arrow-downward']:before
+    content: "\e92e"
+[data-icon='arrow-drop-down']:before
+    content: "\e92f"
+[data-icon='arrow-drop-down-circle']:before
+    content: "\e930"
+[data-icon='arrow-drop-up']:before
+    content: "\e931"
+[data-icon='arrow-forward']:before
+    content: "\e932"
+[data-icon='arrow-upward']:before
+    content: "\e933"
+[data-icon='art-track']:before
+    content: "\e934"
+[data-icon='aspect-ratio']:before
+    content: "\e935"
+[data-icon='poll']:before
+    content: "\e936"
+[data-icon='assignment']:before
+    content: "\e937"
+[data-icon='assignment-ind']:before
+    content: "\e938"
+[data-icon='assignment-late']:before
+    content: "\e939"
+[data-icon='assignment-return']:before
+    content: "\e93a"
+[data-icon='assignment-returned']:before
+    content: "\e93b"
+[data-icon='assignment-turned-in']:before
+    content: "\e93c"
+[data-icon='assistant']:before
+    content: "\e93d"
+[data-icon='flag']:before
+    content: "\e93e"
+[data-icon='attach-file']:before
+    content: "\e93f"
+[data-icon='attach-money']:before
+    content: "\e940"
+[data-icon='attachment']:before
+    content: "\e941"
+[data-icon='audiotrack']:before
+    content: "\e942"
+[data-icon='autorenew']:before
+    content: "\e943"
+[data-icon='av-timer']:before
+    content: "\e944"
+[data-icon='backspace']:before
+    content: "\e945"
+[data-icon='cloud-upload']:before
+    content: "\e946"
+[data-icon='battery-alert']:before
+    content: "\e947"
+[data-icon='battery-charging-full']:before
+    content: "\e948"
+[data-icon='battery-std']:before
+    content: "\e949"
+[data-icon='battery-unknown']:before
+    content: "\e94a"
+[data-icon='beach-access']:before
+    content: "\e94b"
+[data-icon='beenhere']:before
+    content: "\e94c"
+[data-icon='block']:before
+    content: "\e94d"
+[data-icon='bluetooth']:before
+    content: "\e94e"
+[data-icon='bluetooth-searching']:before
+    content: "\e94f"
+[data-icon='bluetooth-connected']:before
+    content: "\e950"
+[data-icon='bluetooth-disabled']:before
+    content: "\e951"
+[data-icon='blur-circular']:before
+    content: "\e952"
+[data-icon='blur-linear']:before
+    content: "\e953"
+[data-icon='blur-off']:before
+    content: "\e954"
+[data-icon='blur-on']:before
+    content: "\e955"
+[data-icon='class']:before
+    content: "\e956"
+[data-icon='turned-in']:before
+    content: "\e957"
+[data-icon='turned-in-not']:before
+    content: "\e958"
+[data-icon='border-all']:before
+    content: "\e959"
+[data-icon='border-bottom']:before
+    content: "\e95a"
+[data-icon='border-clear']:before
+    content: "\e95b"
+[data-icon='border-color']:before
+    content: "\e95c"
+[data-icon='border-horizontal']:before
+    content: "\e95d"
+[data-icon='border-inner']:before
+    content: "\e95e"
+[data-icon='border-left']:before
+    content: "\e95f"
+[data-icon='border-outer']:before
+    content: "\e960"
+[data-icon='border-right']:before
+    content: "\e961"
+[data-icon='border-style']:before
+    content: "\e962"
+[data-icon='border-top']:before
+    content: "\e963"
+[data-icon='border-vertical']:before
+    content: "\e964"
+[data-icon='branding-watermark']:before
+    content: "\e965"
+[data-icon='brightness-1']:before
+    content: "\e966"
+[data-icon='brightness-2']:before
+    content: "\e967"
+[data-icon='brightness-3']:before
+    content: "\e968"
+[data-icon='brightness-4']:before
+    content: "\e969"
+[data-icon='brightness-low']:before
+    content: "\e96a"
+[data-icon='brightness-medium']:before
+    content: "\e96b"
+[data-icon='brightness-high']:before
+    content: "\e96c"
+[data-icon='brightness-auto']:before
+    content: "\e96d"
+[data-icon='broken-image']:before
+    content: "\e96e"
+[data-icon='brush']:before
+    content: "\e96f"
+[data-icon='bubble-chart']:before
+    content: "\e970"
+[data-icon='bug-report']:before
+    content: "\e971"
+[data-icon='build']:before
+    content: "\e972"
+[data-icon='burst-mode']:before
+    content: "\e973"
+[data-icon='domain']:before
+    content: "\e974"
+[data-icon='business-center']:before
+    content: "\e975"
+[data-icon='cached']:before
+    content: "\e976"
+[data-icon='cake']:before
+    content: "\e977"
+[data-icon='phone']:before
+    content: "\e978"
+[data-icon='call-end']:before
+    content: "\e979"
+[data-icon='call-made']:before
+    content: "\e97a"
+[data-icon='merge-type']:before
+    content: "\e97b"
+[data-icon='call-missed']:before
+    content: "\e97c"
+[data-icon='call-missed-outgoing']:before
+    content: "\e97d"
+[data-icon='call-received']:before
+    content: "\e97e"
+[data-icon='call-split']:before
+    content: "\e97f"
+[data-icon='call-to-action']:before
+    content: "\e980"
+[data-icon='camera']:before
+    content: "\e981"
+[data-icon='photo-camera']:before
+    content: "\e982"
+[data-icon='camera-enhance']:before
+    content: "\e983"
+[data-icon='camera-front']:before
+    content: "\e984"
+[data-icon='camera-rear']:before
+    content: "\e985"
+[data-icon='camera-roll']:before
+    content: "\e986"
+[data-icon='cancel']:before
+    content: "\e987"
+[data-icon='redeem']:before
+    content: "\e988"
+[data-icon='card-membership']:before
+    content: "\e989"
+[data-icon='card-travel']:before
+    content: "\e98a"
+[data-icon='casino']:before
+    content: "\e98b"
+[data-icon='cast']:before
+    content: "\e98c"
+[data-icon='cast-connected']:before
+    content: "\e98d"
+[data-icon='center-focus-strong']:before
+    content: "\e98e"
+[data-icon='center-focus-weak']:before
+    content: "\e98f"
+[data-icon='change-history']:before
+    content: "\e990"
+[data-icon='chat']:before
+    content: "\e991"
+[data-icon='chat-bubble']:before
+    content: "\e992"
+[data-icon='chat-bubble-outline']:before
+    content: "\e993"
+[data-icon='check']:before
+    content: "\e994"
+[data-icon='check-box']:before
+    content: "\e995"
+[data-icon='check-box-outline-blank']:before
+    content: "\e996"
+[data-icon='check-circle']:before
+    content: "\e997"
+[data-icon='navigate-before']:before
+    content: "\e998"
+[data-icon='navigate-next']:before
+    content: "\e999"
+[data-icon='child-care']:before
+    content: "\e99a"
+[data-icon='child-friendly']:before
+    content: "\e99b"
+[data-icon='chrome-reader-mode']:before
+    content: "\e99c"
+[data-icon='close']:before
+    content: "\e99d"
+[data-icon='clear-all']:before
+    content: "\e99e"
+[data-icon='closed-caption']:before
+    content: "\e99f"
+[data-icon='wb-cloudy']:before
+    content: "\e9a0"
+[data-icon='cloud-circle']:before
+    content: "\e9a1"
+[data-icon='cloud-done']:before
+    content: "\e9a2"
+[data-icon='cloud-download']:before
+    content: "\e9a3"
+[data-icon='cloud-off']:before
+    content: "\e9a4"
+[data-icon='cloud-queue']:before
+    content: "\e9a5"
+[data-icon='code']:before
+    content: "\e9a6"
+[data-icon='photo-library']:before
+    content: "\e9a7"
+[data-icon='collections-bookmark']:before
+    content: "\e9a8"
+[data-icon='palette']:before
+    content: "\e9a9"
+[data-icon='colorize']:before
+    content: "\e9aa"
+[data-icon='comment']:before
+    content: "\e9ab"
+[data-icon='compare']:before
+    content: "\e9ac"
+[data-icon='compare-arrows']:before
+    content: "\e9ad"
+[data-icon='laptop']:before
+    content: "\e9ae"
+[data-icon='confirmation-number']:before
+    content: "\e9af"
+[data-icon='contact-mail']:before
+    content: "\e9b0"
+[data-icon='contact-phone']:before
+    content: "\e9b1"
+[data-icon='contacts']:before
+    content: "\e9b2"
+[data-icon='content-copy']:before
+    content: "\e9b3"
+[data-icon='content-cut']:before
+    content: "\e9b4"
+[data-icon='content-paste']:before
+    content: "\e9b5"
+[data-icon='control-point-duplicate']:before
+    content: "\e9b6"
+[data-icon='copyright']:before
+    content: "\e9b7"
+[data-icon='mode-edit']:before
+    content: "\e9b8"
+[data-icon='create-new-folder']:before
+    content: "\e9b9"
+[data-icon='payment']:before
+    content: "\e9ba"
+[data-icon='crop']:before
+    content: "\e9bb"
+[data-icon='crop-16-9']:before
+    content: "\e9bc"
+[data-icon='crop-3-2']:before
+    content: "\e9bd"
+[data-icon='crop-landscape']:before
+    content: "\e9be"
+[data-icon='crop-7-5']:before
+    content: "\e9bf"
+[data-icon='crop-din']:before
+    content: "\e9c0"
+[data-icon='crop-free']:before
+    content: "\e9c1"
+[data-icon='crop-original']:before
+    content: "\e9c2"
+[data-icon='crop-portrait']:before
+    content: "\e9c3"
+[data-icon='crop-rotate']:before
+    content: "\e9c4"
+[data-icon='crop-square']:before
+    content: "\e9c5"
+[data-icon='dashboard']:before
+    content: "\e9c6"
+[data-icon='data-usage']:before
+    content: "\e9c7"
+[data-icon='date-range']:before
+    content: "\e9c8"
+[data-icon='dehaze']:before
+    content: "\e9c9"
+[data-icon='delete']:before
+    content: "\e9ca"
+[data-icon='delete-forever']:before
+    content: "\e9cb"
+[data-icon='delete-sweep']:before
+    content: "\e9cc"
+[data-icon='description']:before
+    content: "\e9cd"
+[data-icon='desktop-mac']:before
+    content: "\e9ce"
+[data-icon='desktop-windows']:before
+    content: "\e9cf"
+[data-icon='details']:before
+    content: "\e9d0"
+[data-icon='developer-board']:before
+    content: "\e9d1"
+[data-icon='developer-mode']:before
+    content: "\e9d2"
+[data-icon='device-hub']:before
+    content: "\e9d3"
+[data-icon='phonelink']:before
+    content: "\e9d4"
+[data-icon='devices-other']:before
+    content: "\e9d5"
+[data-icon='dialer-sip']:before
+    content: "\e9d6"
+[data-icon='dialpad']:before
+    content: "\e9d7"
+[data-icon='directions']:before
+    content: "\e9d8"
+[data-icon='directions-bike']:before
+    content: "\e9d9"
+[data-icon='directions-boat']:before
+    content: "\e9da"
+[data-icon='directions-bus']:before
+    content: "\e9db"
+[data-icon='directions-car']:before
+    content: "\e9dc"
+[data-icon='directions-railway']:before
+    content: "\e9dd"
+[data-icon='directions-run']:before
+    content: "\e9de"
+[data-icon='directions-transit']:before
+    content: "\e9df"
+[data-icon='directions-walk']:before
+    content: "\e9e0"
+[data-icon='disc-full']:before
+    content: "\e9e1"
+[data-icon='dns']:before
+    content: "\e9e2"
+[data-icon='not-interested']:before
+    content: "\e9e3"
+[data-icon='do-not-disturb-alt']:before
+    content: "\e9e4"
+[data-icon='do-not-disturb-off']:before
+    content: "\e9e5"
+[data-icon='remove-circle']:before
+    content: "\e9e6"
+[data-icon='dock']:before
+    content: "\e9e7"
+[data-icon='done']:before
+    content: "\e9e8"
+[data-icon='done-all']:before
+    content: "\e9e9"
+[data-icon='donut-large']:before
+    content: "\e9ea"
+[data-icon='donut-small']:before
+    content: "\e9eb"
+[data-icon='drafts']:before
+    content: "\e9ec"
+[data-icon='drag-handle']:before
+    content: "\e9ed"
+[data-icon='time-to-leave']:before
+    content: "\e9ee"
+[data-icon='dvr']:before
+    content: "\e9ef"
+[data-icon='edit-location']:before
+    content: "\e9f0"
+[data-icon='eject']:before
+    content: "\e9f1"
+[data-icon='markunread']:before
+    content: "\e9f2"
+[data-icon='enhanced-encryption']:before
+    content: "\e9f3"
+[data-icon='equalizer']:before
+    content: "\e9f4"
+[data-icon='error']:before
+    content: "\e9f5"
+[data-icon='error-outline']:before
+    content: "\e9f6"
+[data-icon='euro-symbol']:before
+    content: "\e9f7"
+[data-icon='ev-station']:before
+    content: "\e9f8"
+[data-icon='insert-invitation']:before
+    content: "\e9f9"
+[data-icon='event-available']:before
+    content: "\e9fa"
+[data-icon='event-busy']:before
+    content: "\e9fb"
+[data-icon='event-note']:before
+    content: "\e9fc"
+[data-icon='event-seat']:before
+    content: "\e9fd"
+[data-icon='exit-to-app']:before
+    content: "\e9fe"
+[data-icon='expand-less']:before
+    content: "\e9ff"
+[data-icon='expand-more']:before
+    content: "\ea00"
+[data-icon='explicit']:before
+    content: "\ea01"
+[data-icon='explore']:before
+    content: "\ea02"
+[data-icon='exposure']:before
+    content: "\ea03"
+[data-icon='exposure-neg-1']:before
+    content: "\ea04"
+[data-icon='exposure-neg-2']:before
+    content: "\ea05"
+[data-icon='exposure-plus-1']:before
+    content: "\ea06"
+[data-icon='exposure-plus-2']:before
+    content: "\ea07"
+[data-icon='exposure-zero']:before
+    content: "\ea08"
+[data-icon='extension']:before
+    content: "\ea09"
+[data-icon='face']:before
+    content: "\ea0a"
+[data-icon='fast-forward']:before
+    content: "\ea0b"
+[data-icon='fast-rewind']:before
+    content: "\ea0c"
+[data-icon='favorite']:before
+    content: "\ea0d"
+[data-icon='favorite-border']:before
+    content: "\ea0e"
+[data-icon='featured-play-list']:before
+    content: "\ea0f"
+[data-icon='featured-video']:before
+    content: "\ea10"
+[data-icon='sms-failed']:before
+    content: "\ea11"
+[data-icon='fiber-dvr']:before
+    content: "\ea12"
+[data-icon='fiber-manual-record']:before
+    content: "\ea13"
+[data-icon='fiber-new']:before
+    content: "\ea14"
+[data-icon='fiber-pin']:before
+    content: "\ea15"
+[data-icon='fiber-smart-record']:before
+    content: "\ea16"
+[data-icon='get-app']:before
+    content: "\ea17"
+[data-icon='file-upload']:before
+    content: "\ea18"
+[data-icon='filter']:before
+    content: "\ea19"
+[data-icon='filter-1']:before
+    content: "\ea1a"
+[data-icon='filter-2']:before
+    content: "\ea1b"
+[data-icon='filter-3']:before
+    content: "\ea1c"
+[data-icon='filter-4']:before
+    content: "\ea1d"
+[data-icon='filter-5']:before
+    content: "\ea1e"
+[data-icon='filter-6']:before
+    content: "\ea1f"
+[data-icon='filter-7']:before
+    content: "\ea20"
+[data-icon='filter-8']:before
+    content: "\ea21"
+[data-icon='filter-9']:before
+    content: "\ea22"
+[data-icon='filter-9-plus']:before
+    content: "\ea23"
+[data-icon='filter-b-and-w']:before
+    content: "\ea24"
+[data-icon='filter-center-focus']:before
+    content: "\ea25"
+[data-icon='filter-drama']:before
+    content: "\ea26"
+[data-icon='filter-frames']:before
+    content: "\ea27"
+[data-icon='terrain']:before
+    content: "\ea28"
+[data-icon='filter-list']:before
+    content: "\ea29"
+[data-icon='filter-none']:before
+    content: "\ea2a"
+[data-icon='filter-tilt-shift']:before
+    content: "\ea2b"
+[data-icon='filter-vintage']:before
+    content: "\ea2c"
+[data-icon='find-in-page']:before
+    content: "\ea2d"
+[data-icon='find-replace']:before
+    content: "\ea2e"
+[data-icon='fingerprint']:before
+    content: "\ea2f"
+[data-icon='first-page']:before
+    content: "\ea30"
+[data-icon='fitness-center']:before
+    content: "\ea31"
+[data-icon='flare']:before
+    content: "\ea32"
+[data-icon='flash-auto']:before
+    content: "\ea33"
+[data-icon='flash-off']:before
+    content: "\ea34"
+[data-icon='flash-on']:before
+    content: "\ea35"
+[data-icon='flight-land']:before
+    content: "\ea36"
+[data-icon='flight-takeoff']:before
+    content: "\ea37"
+[data-icon='flip']:before
+    content: "\ea38"
+[data-icon='flip-to-back']:before
+    content: "\ea39"
+[data-icon='flip-to-front']:before
+    content: "\ea3a"
+[data-icon='folder']:before
+    content: "\ea3b"
+[data-icon='folder-open']:before
+    content: "\ea3c"
+[data-icon='folder-shared']:before
+    content: "\ea3d"
+[data-icon='folder-special']:before
+    content: "\ea3e"
+[data-icon='font-download']:before
+    content: "\ea3f"
+[data-icon='format-align-center']:before
+    content: "\ea40"
+[data-icon='format-align-justify']:before
+    content: "\ea41"
+[data-icon='format-align-left']:before
+    content: "\ea42"
+[data-icon='format-align-right']:before
+    content: "\ea43"
+[data-icon='format-bold']:before
+    content: "\ea44"
+[data-icon='format-clear']:before
+    content: "\ea45"
+[data-icon='format-color-fill']:before
+    content: "\ea46"
+[data-icon='format-color-reset']:before
+    content: "\ea47"
+[data-icon='format-color-text']:before
+    content: "\ea48"
+[data-icon='format-indent-decrease']:before
+    content: "\ea49"
+[data-icon='format-indent-increase']:before
+    content: "\ea4a"
+[data-icon='format-italic']:before
+    content: "\ea4b"
+[data-icon='format-line-spacing']:before
+    content: "\ea4c"
+[data-icon='format-list-bulleted']:before
+    content: "\ea4d"
+[data-icon='format-list-numbered']:before
+    content: "\ea4e"
+[data-icon='format-paint']:before
+    content: "\ea4f"
+[data-icon='format-quote']:before
+    content: "\ea50"
+[data-icon='format-shapes']:before
+    content: "\ea51"
+[data-icon='format-size']:before
+    content: "\ea52"
+[data-icon='format-strikethrough']:before
+    content: "\ea53"
+[data-icon='format-textdirection-l-to-r']:before
+    content: "\ea54"
+[data-icon='format-textdirection-r-to-l']:before
+    content: "\ea55"
+[data-icon='format-underlined']:before
+    content: "\ea56"
+[data-icon='question-answer']:before
+    content: "\ea57"
+[data-icon='forward']:before
+    content: "\ea58"
+[data-icon='forward-10']:before
+    content: "\ea59"
+[data-icon='forward-30']:before
+    content: "\ea5a"
+[data-icon='forward-5']:before
+    content: "\ea5b"
+[data-icon='free-breakfast']:before
+    content: "\ea5c"
+[data-icon='fullscreen']:before
+    content: "\ea5d"
+[data-icon='fullscreen-exit']:before
+    content: "\ea5e"
+[data-icon='functions']:before
+    content: "\ea5f"
+[data-icon='g-translate']:before
+    content: "\ea60"
+[data-icon='games']:before
+    content: "\ea61"
+[data-icon='gavel']:before
+    content: "\ea62"
+[data-icon='gesture']:before
+    content: "\ea63"
+[data-icon='gif']:before
+    content: "\ea64"
+[data-icon='goat']:before
+    content: "\ea65"
+[data-icon='golf-course']:before
+    content: "\ea66"
+[data-icon='my-location']:before
+    content: "\ea67"
+[data-icon='location-searching']:before
+    content: "\ea68"
+[data-icon='location-disabled']:before
+    content: "\ea69"
+[data-icon='star']:before
+    content: "\ea6a"
+[data-icon='gradient']:before
+    content: "\ea6b"
+[data-icon='grain']:before
+    content: "\ea6c"
+[data-icon='graphic-eq']:before
+    content: "\ea6d"
+[data-icon='grid-off']:before
+    content: "\ea6e"
+[data-icon='grid-on']:before
+    content: "\ea6f"
+[data-icon='people']:before
+    content: "\ea70"
+[data-icon='group-add']:before
+    content: "\ea71"
+[data-icon='group-work']:before
+    content: "\ea72"
+[data-icon='hd']:before
+    content: "\ea73"
+[data-icon='hdr-off']:before
+    content: "\ea74"
+[data-icon='hdr-on']:before
+    content: "\ea75"
+[data-icon='hdr-strong']:before
+    content: "\ea76"
+[data-icon='hdr-weak']:before
+    content: "\ea77"
+[data-icon='headset']:before
+    content: "\ea78"
+[data-icon='headset-mic']:before
+    content: "\ea79"
+[data-icon='healing']:before
+    content: "\ea7a"
+[data-icon='hearing']:before
+    content: "\ea7b"
+[data-icon='help']:before
+    content: "\ea7c"
+[data-icon='help-outline']:before
+    content: "\ea7d"
+[data-icon='high-quality']:before
+    content: "\ea7e"
+[data-icon='highlight']:before
+    content: "\ea7f"
+[data-icon='highlight-off']:before
+    content: "\ea80"
+[data-icon='restore']:before
+    content: "\ea81"
+[data-icon='home']:before
+    content: "\ea82"
+[data-icon='hot-tub']:before
+    content: "\ea83"
+[data-icon='local-hotel']:before
+    content: "\ea84"
+[data-icon='hourglass-empty']:before
+    content: "\ea85"
+[data-icon='hourglass-full']:before
+    content: "\ea86"
+[data-icon='http']:before
+    content: "\ea87"
+[data-icon='lock']:before
+    content: "\ea88"
+[data-icon='photo']:before
+    content: "\ea89"
+[data-icon='image-aspect-ratio']:before
+    content: "\ea8a"
+[data-icon='import-contacts']:before
+    content: "\ea8b"
+[data-icon='import-export']:before
+    content: "\ea8c"
+[data-icon='important-devices']:before
+    content: "\ea8d"
+[data-icon='inbox']:before
+    content: "\ea8e"
+[data-icon='indeterminate-check-box']:before
+    content: "\ea8f"
+[data-icon='info']:before
+    content: "\ea90"
+[data-icon='info-outline']:before
+    content: "\ea91"
+[data-icon='input']:before
+    content: "\ea92"
+[data-icon='insert-comment']:before
+    content: "\ea93"
+[data-icon='insert-drive-file']:before
+    content: "\ea94"
+[data-icon='tag-faces']:before
+    content: "\ea95"
+[data-icon='link']:before
+    content: "\ea96"
+[data-icon='invert-colors']:before
+    content: "\ea97"
+[data-icon='invert-colors-off']:before
+    content: "\ea98"
+[data-icon='iso']:before
+    content: "\ea99"
+[data-icon='keyboard']:before
+    content: "\ea9a"
+[data-icon='keyboard-arrow-down']:before
+    content: "\ea9b"
+[data-icon='keyboard-arrow-left']:before
+    content: "\ea9c"
+[data-icon='keyboard-arrow-right']:before
+    content: "\ea9d"
+[data-icon='keyboard-arrow-up']:before
+    content: "\ea9e"
+[data-icon='keyboard-backspace']:before
+    content: "\ea9f"
+[data-icon='keyboard-capslock']:before
+    content: "\eaa0"
+[data-icon='keyboard-hide']:before
+    content: "\eaa1"
+[data-icon='keyboard-return']:before
+    content: "\eaa2"
+[data-icon='keyboard-tab']:before
+    content: "\eaa3"
+[data-icon='keyboard-voice']:before
+    content: "\eaa4"
+[data-icon='kitchen']:before
+    content: "\eaa5"
+[data-icon='label']:before
+    content: "\eaa6"
+[data-icon='label-outline']:before
+    content: "\eaa7"
+[data-icon='language']:before
+    content: "\eaa8"
+[data-icon='laptop-chromebook']:before
+    content: "\eaa9"
+[data-icon='laptop-mac']:before
+    content: "\eaaa"
+[data-icon='laptop-windows']:before
+    content: "\eaab"
+[data-icon='last-page']:before
+    content: "\eaac"
+[data-icon='open-in-new']:before
+    content: "\eaad"
+[data-icon='layers']:before
+    content: "\eaae"
+[data-icon='layers-clear']:before
+    content: "\eaaf"
+[data-icon='leak-add']:before
+    content: "\eab0"
+[data-icon='leak-remove']:before
+    content: "\eab1"
+[data-icon='lens']:before
+    content: "\eab2"
+[data-icon='library-books']:before
+    content: "\eab3"
+[data-icon='library-music']:before
+    content: "\eab4"
+[data-icon='lightbulb-outline']:before
+    content: "\eab5"
+[data-icon='line-style']:before
+    content: "\eab6"
+[data-icon='line-weight']:before
+    content: "\eab7"
+[data-icon='linear-scale']:before
+    content: "\eab8"
+[data-icon='linked-camera']:before
+    content: "\eab9"
+[data-icon='list']:before
+    content: "\eaba"
+[data-icon='live-help']:before
+    content: "\eabb"
+[data-icon='live-tv']:before
+    content: "\eabc"
+[data-icon='local-play']:before
+    content: "\eabd"
+[data-icon='local-airport']:before
+    content: "\eabe"
+[data-icon='local-atm']:before
+    content: "\eabf"
+[data-icon='local-bar']:before
+    content: "\eac0"
+[data-icon='local-cafe']:before
+    content: "\eac1"
+[data-icon='local-car-wash']:before
+    content: "\eac2"
+[data-icon='local-convenience-store']:before
+    content: "\eac3"
+[data-icon='restaurant-menu']:before
+    content: "\eac4"
+[data-icon='local-drink']:before
+    content: "\eac5"
+[data-icon='local-florist']:before
+    content: "\eac6"
+[data-icon='local-gas-station']:before
+    content: "\eac7"
+[data-icon='shopping-cart']:before
+    content: "\eac8"
+[data-icon='local-hospital']:before
+    content: "\eac9"
+[data-icon='local-laundry-service']:before
+    content: "\eaca"
+[data-icon='local-library']:before
+    content: "\eacb"
+[data-icon='local-mall']:before
+    content: "\eacc"
+[data-icon='theaters']:before
+    content: "\eacd"
+[data-icon='local-offer']:before
+    content: "\eace"
+[data-icon='local-parking']:before
+    content: "\eacf"
+[data-icon='local-pharmacy']:before
+    content: "\ead0"
+[data-icon='local-pizza']:before
+    content: "\ead1"
+[data-icon='print']:before
+    content: "\ead2"
+[data-icon='local-shipping']:before
+    content: "\ead3"
+[data-icon='local-taxi']:before
+    content: "\ead4"
+[data-icon='location-city']:before
+    content: "\ead5"
+[data-icon='location-off']:before
+    content: "\ead6"
+[data-icon='room']:before
+    content: "\ead7"
+[data-icon='lock-open']:before
+    content: "\ead8"
+[data-icon='lock-outline']:before
+    content: "\ead9"
+[data-icon='looks']:before
+    content: "\eada"
+[data-icon='looks-3']:before
+    content: "\eadb"
+[data-icon='looks-4']:before
+    content: "\eadc"
+[data-icon='looks-5']:before
+    content: "\eadd"
+[data-icon='looks-6']:before
+    content: "\eade"
+[data-icon='looks-one']:before
+    content: "\eadf"
+[data-icon='looks-two']:before
+    content: "\eae0"
+[data-icon='sync']:before
+    content: "\eae1"
+[data-icon='loupe']:before
+    content: "\eae2"
+[data-icon='low-priority']:before
+    content: "\eae3"
+[data-icon='loyalty']:before
+    content: "\eae4"
+[data-icon='mail-outline']:before
+    content: "\eae5"
+[data-icon='map']:before
+    content: "\eae6"
+[data-icon='markunread-mailbox']:before
+    content: "\eae7"
+[data-icon='memory']:before
+    content: "\eae8"
+[data-icon='menu']:before
+    content: "\eae9"
+[data-icon='message']:before
+    content: "\eaea"
+[data-icon='mic']:before
+    content: "\eaeb"
+[data-icon='mic-none']:before
+    content: "\eaec"
+[data-icon='mic-off']:before
+    content: "\eaed"
+[data-icon='mms']:before
+    content: "\eaee"
+[data-icon='mode-comment']:before
+    content: "\eaef"
+[data-icon='monetization-on']:before
+    content: "\eaf0"
+[data-icon='money-off']:before
+    content: "\eaf1"
+[data-icon='monochrome-photos']:before
+    content: "\eaf2"
+[data-icon='mood-bad']:before
+    content: "\eaf3"
+[data-icon='more']:before
+    content: "\eaf4"
+[data-icon='more-horiz']:before
+    content: "\eaf5"
+[data-icon='more-vert']:before
+    content: "\eaf6"
+[data-icon='motorcycle']:before
+    content: "\eaf7"
+[data-icon='mouse']:before
+    content: "\eaf8"
+[data-icon='move-to-inbox']:before
+    content: "\eaf9"
+[data-icon='movie-creation']:before
+    content: "\eafa"
+[data-icon='movie-filter']:before
+    content: "\eafb"
+[data-icon='multiline-chart']:before
+    content: "\eafc"
+[data-icon='music-note']:before
+    content: "\eafd"
+[data-icon='music-video']:before
+    content: "\eafe"
+[data-icon='nature']:before
+    content: "\eaff"
+[data-icon='nature-people']:before
+    content: "\eb00"
+[data-icon='navigation']:before
+    content: "\eb01"
+[data-icon='near-me']:before
+    content: "\eb02"
+[data-icon='network-cell']:before
+    content: "\eb03"
+[data-icon='network-check']:before
+    content: "\eb04"
+[data-icon='network-locked']:before
+    content: "\eb05"
+[data-icon='network-wifi']:before
+    content: "\eb06"
+[data-icon='new-releases']:before
+    content: "\eb07"
+[data-icon='next-week']:before
+    content: "\eb08"
+[data-icon='nfc']:before
+    content: "\eb09"
+[data-icon='no-encryption']:before
+    content: "\eb0a"
+[data-icon='signal-cellular-no-sim']:before
+    content: "\eb0b"
+[data-icon='note']:before
+    content: "\eb0c"
+[data-icon='note-add']:before
+    content: "\eb0d"
+[data-icon='notifications']:before
+    content: "\eb0e"
+[data-icon='notifications-active']:before
+    content: "\eb0f"
+[data-icon='notifications-none']:before
+    content: "\eb10"
+[data-icon='notifications-off']:before
+    content: "\eb11"
+[data-icon='notifications-paused']:before
+    content: "\eb12"
+[data-icon='offline-pin']:before
+    content: "\eb13"
+[data-icon='ondemand-video']:before
+    content: "\eb14"
+[data-icon='opacity']:before
+    content: "\eb15"
+[data-icon='open-in-browser']:before
+    content: "\eb16"
+[data-icon='open-with']:before
+    content: "\eb17"
+[data-icon='pages']:before
+    content: "\eb18"
+[data-icon='pageview']:before
+    content: "\eb19"
+[data-icon='pan-tool']:before
+    content: "\eb1a"
+[data-icon='panorama']:before
+    content: "\eb1b"
+[data-icon='radio-button-unchecked']:before
+    content: "\eb1c"
+[data-icon='panorama-horizontal']:before
+    content: "\eb1d"
+[data-icon='panorama-vertical']:before
+    content: "\eb1e"
+[data-icon='panorama-wide-angle']:before
+    content: "\eb1f"
+[data-icon='party-mode']:before
+    content: "\eb20"
+[data-icon='pause']:before
+    content: "\eb21"
+[data-icon='pause-circle-filled']:before
+    content: "\eb22"
+[data-icon='pause-circle-outline']:before
+    content: "\eb23"
+[data-icon='people-outline']:before
+    content: "\eb24"
+[data-icon='perm-camera-mic']:before
+    content: "\eb25"
+[data-icon='perm-contact-calendar']:before
+    content: "\eb26"
+[data-icon='perm-data-setting']:before
+    content: "\eb27"
+[data-icon='perm-device-information']:before
+    content: "\eb28"
+[data-icon='person-outline']:before
+    content: "\eb29"
+[data-icon='perm-media']:before
+    content: "\eb2a"
+[data-icon='perm-phone-msg']:before
+    content: "\eb2b"
+[data-icon='perm-scan-wifi']:before
+    content: "\eb2c"
+[data-icon='person']:before
+    content: "\eb2d"
+[data-icon='person-add']:before
+    content: "\eb2e"
+[data-icon='person-pin']:before
+    content: "\eb2f"
+[data-icon='person-pin-circle']:before
+    content: "\eb30"
+[data-icon='personal-video']:before
+    content: "\eb31"
+[data-icon='pets']:before
+    content: "\eb32"
+[data-icon='phone-android']:before
+    content: "\eb33"
+[data-icon='phone-bluetooth-speaker']:before
+    content: "\eb34"
+[data-icon='phone-forwarded']:before
+    content: "\eb35"
+[data-icon='phone-in-talk']:before
+    content: "\eb36"
+[data-icon='phone-iphone']:before
+    content: "\eb37"
+[data-icon='phone-locked']:before
+    content: "\eb38"
+[data-icon='phone-missed']:before
+    content: "\eb39"
+[data-icon='phone-paused']:before
+    content: "\eb3a"
+[data-icon='phonelink-erase']:before
+    content: "\eb3b"
+[data-icon='phonelink-lock']:before
+    content: "\eb3c"
+[data-icon='phonelink-off']:before
+    content: "\eb3d"
+[data-icon='phonelink-ring']:before
+    content: "\eb3e"
+[data-icon='phonelink-setup']:before
+    content: "\eb3f"
+[data-icon='photo-album']:before
+    content: "\eb40"
+[data-icon='photo-filter']:before
+    content: "\eb41"
+[data-icon='photo-size-select-actual']:before
+    content: "\eb42"
+[data-icon='photo-size-select-large']:before
+    content: "\eb43"
+[data-icon='photo-size-select-small']:before
+    content: "\eb44"
+[data-icon='picture-as-pdf']:before
+    content: "\eb45"
+[data-icon='picture-in-picture']:before
+    content: "\eb46"
+[data-icon='picture-in-picture-alt']:before
+    content: "\eb47"
+[data-icon='pie-chart']:before
+    content: "\eb48"
+[data-icon='pie-chart-outlined']:before
+    content: "\eb49"
+[data-icon='pin-drop']:before
+    content: "\eb4a"
+[data-icon='play-arrow']:before
+    content: "\eb4b"
+[data-icon='play-circle-filled']:before
+    content: "\eb4c"
+[data-icon='play-circle-outline']:before
+    content: "\eb4d"
+[data-icon='play-for-work']:before
+    content: "\eb4e"
+[data-icon='playlist-add']:before
+    content: "\eb4f"
+[data-icon='playlist-add-check']:before
+    content: "\eb50"
+[data-icon='playlist-play']:before
+    content: "\eb51"
+[data-icon='plus-one']:before
+    content: "\eb52"
+[data-icon='polymer']:before
+    content: "\eb53"
+[data-icon='pool']:before
+    content: "\eb54"
+[data-icon='portable-wifi-off']:before
+    content: "\eb55"
+[data-icon='portrait']:before
+    content: "\eb56"
+[data-icon='power']:before
+    content: "\eb57"
+[data-icon='power-input']:before
+    content: "\eb58"
+[data-icon='power-settings-new']:before
+    content: "\eb59"
+[data-icon='pregnant-woman']:before
+    content: "\eb5a"
+[data-icon='present-to-all']:before
+    content: "\eb5b"
+[data-icon='priority-high']:before
+    content: "\eb5c"
+[data-icon='public']:before
+    content: "\eb5d"
+[data-icon='publish']:before
+    content: "\eb5e"
+[data-icon='queue-music']:before
+    content: "\eb5f"
+[data-icon='queue-play-next']:before
+    content: "\eb60"
+[data-icon='radio']:before
+    content: "\eb61"
+[data-icon='radio-button-checked']:before
+    content: "\eb62"
+[data-icon='rate-review']:before
+    content: "\eb63"
+[data-icon='receipt']:before
+    content: "\eb64"
+[data-icon='recent-actors']:before
+    content: "\eb65"
+[data-icon='record-voice-over']:before
+    content: "\eb66"
+[data-icon='redo']:before
+    content: "\eb67"
+[data-icon='refresh']:before
+    content: "\eb68"
+[data-icon='remove']:before
+    content: "\eb69"
+[data-icon='remove-circle-outline']:before
+    content: "\eb6a"
+[data-icon='remove-from-queue']:before
+    content: "\eb6b"
+[data-icon='visibility']:before
+    content: "\eb6c"
+[data-icon='remove-shopping-cart']:before
+    content: "\eb6d"
+[data-icon='reorder']:before
+    content: "\eb6e"
+[data-icon='repeat']:before
+    content: "\eb6f"
+[data-icon='repeat-one']:before
+    content: "\eb70"
+[data-icon='replay']:before
+    content: "\eb71"
+[data-icon='replay-10']:before
+    content: "\eb72"
+[data-icon='replay-30']:before
+    content: "\eb73"
+[data-icon='replay-5']:before
+    content: "\eb74"
+[data-icon='reply']:before
+    content: "\eb75"
+[data-icon='reply-all']:before
+    content: "\eb76"
+[data-icon='report']:before
+    content: "\eb77"
+[data-icon='warning']:before
+    content: "\eb78"
+[data-icon='restaurant']:before
+    content: "\eb79"
+[data-icon='restore-page']:before
+    content: "\eb7a"
+[data-icon='ring-volume']:before
+    content: "\eb7b"
+[data-icon='room-service']:before
+    content: "\eb7c"
+[data-icon='rotate-90-degrees-ccw']:before
+    content: "\eb7d"
+[data-icon='rotate-left']:before
+    content: "\eb7e"
+[data-icon='rotate-right']:before
+    content: "\eb7f"
+[data-icon='rounded-corner']:before
+    content: "\eb80"
+[data-icon='router']:before
+    content: "\eb81"
+[data-icon='rowing']:before
+    content: "\eb82"
+[data-icon='rss-feed']:before
+    content: "\eb83"
+[data-icon='rv-hookup']:before
+    content: "\eb84"
+[data-icon='satellite']:before
+    content: "\eb85"
+[data-icon='save']:before
+    content: "\eb86"
+[data-icon='scanner']:before
+    content: "\eb87"
+[data-icon='school']:before
+    content: "\eb88"
+[data-icon='screen-lock-landscape']:before
+    content: "\eb89"
+[data-icon='screen-lock-portrait']:before
+    content: "\eb8a"
+[data-icon='screen-lock-rotation']:before
+    content: "\eb8b"
+[data-icon='screen-rotation']:before
+    content: "\eb8c"
+[data-icon='screen-share']:before
+    content: "\eb8d"
+[data-icon='sd-storage']:before
+    content: "\eb8e"
+[data-icon='search']:before
+    content: "\eb8f"
+[data-icon='security']:before
+    content: "\eb90"
+[data-icon='select-all']:before
+    content: "\eb91"
+[data-icon='send']:before
+    content: "\eb92"
+[data-icon='sentiment-dissatisfied']:before
+    content: "\eb93"
+[data-icon='sentiment-neutral']:before
+    content: "\eb94"
+[data-icon='sentiment-satisfied']:before
+    content: "\eb95"
+[data-icon='sentiment-very-dissatisfied']:before
+    content: "\eb96"
+[data-icon='sentiment-very-satisfied']:before
+    content: "\eb97"
+[data-icon='settings']:before
+    content: "\eb98"
+[data-icon='settings-applications']:before
+    content: "\eb99"
+[data-icon='settings-backup-restore']:before
+    content: "\eb9a"
+[data-icon='settings-bluetooth']:before
+    content: "\eb9b"
+[data-icon='settings-brightness']:before
+    content: "\eb9c"
+[data-icon='settings-cell']:before
+    content: "\eb9d"
+[data-icon='settings-ethernet']:before
+    content: "\eb9e"
+[data-icon='settings-input-antenna']:before
+    content: "\eb9f"
+[data-icon='settings-input-composite']:before
+    content: "\eba0"
+[data-icon='settings-input-hdmi']:before
+    content: "\eba1"
+[data-icon='settings-input-svideo']:before
+    content: "\eba2"
+[data-icon='settings-overscan']:before
+    content: "\eba3"
+[data-icon='settings-phone']:before
+    content: "\eba4"
+[data-icon='settings-power']:before
+    content: "\eba5"
+[data-icon='settings-remote']:before
+    content: "\eba6"
+[data-icon='settings-system-daydream']:before
+    content: "\eba7"
+[data-icon='settings-voice']:before
+    content: "\eba8"
+[data-icon='share']:before
+    content: "\eba9"
+[data-icon='shop']:before
+    content: "\ebaa"
+[data-icon='shop-two']:before
+    content: "\ebab"
+[data-icon='shopping-basket']:before
+    content: "\ebac"
+[data-icon='short-text']:before
+    content: "\ebad"
+[data-icon='show-chart']:before
+    content: "\ebae"
+[data-icon='shuffle']:before
+    content: "\ebaf"
+[data-icon='signal-cellular-4-bar']:before
+    content: "\ebb0"
+[data-icon='signal-cellular-connected-no-internet-4-bar']:before
+    content: "\ebb1"
+[data-icon='signal-cellular-null']:before
+    content: "\ebb2"
+[data-icon='signal-cellular-off']:before
+    content: "\ebb3"
+[data-icon='signal-wifi-4-bar']:before
+    content: "\ebb4"
+[data-icon='signal-wifi-4-bar-lock']:before
+    content: "\ebb5"
+[data-icon='signal-wifi-off']:before
+    content: "\ebb6"
+[data-icon='sim-card']:before
+    content: "\ebb7"
+[data-icon='sim-card-alert']:before
+    content: "\ebb8"
+[data-icon='skip-next']:before
+    content: "\ebb9"
+[data-icon='skip-previous']:before
+    content: "\ebba"
+[data-icon='slideshow']:before
+    content: "\ebbb"
+[data-icon='slow-motion-video']:before
+    content: "\ebbc"
+[data-icon='stay-primary-portrait']:before
+    content: "\ebbd"
+[data-icon='smoke-free']:before
+    content: "\ebbe"
+[data-icon='smoking-rooms']:before
+    content: "\ebbf"
+[data-icon='textsms']:before
+    content: "\ebc0"
+[data-icon='snooze']:before
+    content: "\ebc1"
+[data-icon='sort']:before
+    content: "\ebc2"
+[data-icon='sort-by-alpha']:before
+    content: "\ebc3"
+[data-icon='spa']:before
+    content: "\ebc4"
+[data-icon='space-bar']:before
+    content: "\ebc5"
+[data-icon='speaker']:before
+    content: "\ebc6"
+[data-icon='speaker-group']:before
+    content: "\ebc7"
+[data-icon='speaker-notes']:before
+    content: "\ebc8"
+[data-icon='speaker-notes-off']:before
+    content: "\ebc9"
+[data-icon='speaker-phone']:before
+    content: "\ebca"
+[data-icon='spellcheck']:before
+    content: "\ebcb"
+[data-icon='star-border']:before
+    content: "\ebcc"
+[data-icon='star-half']:before
+    content: "\ebcd"
+[data-icon='stars']:before
+    content: "\ebce"
+[data-icon='stay-primary-landscape']:before
+    content: "\ebcf"
+[data-icon='stop']:before
+    content: "\ebd0"
+[data-icon='stop-screen-share']:before
+    content: "\ebd1"
+[data-icon='storage']:before
+    content: "\ebd2"
+[data-icon='store-mall-directory']:before
+    content: "\ebd3"
+[data-icon='straighten']:before
+    content: "\ebd4"
+[data-icon='streetview']:before
+    content: "\ebd5"
+[data-icon='strikethrough-s']:before
+    content: "\ebd6"
+[data-icon='style']:before
+    content: "\ebd7"
+[data-icon='subdirectory-arrow-left']:before
+    content: "\ebd8"
+[data-icon='subdirectory-arrow-right']:before
+    content: "\ebd9"
+[data-icon='subject']:before
+    content: "\ebda"
+[data-icon='subscriptions']:before
+    content: "\ebdb"
+[data-icon='subtitles']:before
+    content: "\ebdc"
+[data-icon='subway']:before
+    content: "\ebdd"
+[data-icon='supervisor-account']:before
+    content: "\ebde"
+[data-icon='surround-sound']:before
+    content: "\ebdf"
+[data-icon='swap-calls']:before
+    content: "\ebe0"
+[data-icon='swap-horiz']:before
+    content: "\ebe1"
+[data-icon='swap-vert']:before
+    content: "\ebe2"
+[data-icon='swap-vertical-circle']:before
+    content: "\ebe3"
+[data-icon='switch-camera']:before
+    content: "\ebe4"
+[data-icon='switch-video']:before
+    content: "\ebe5"
+[data-icon='sync-disabled']:before
+    content: "\ebe6"
+[data-icon='sync-problem']:before
+    content: "\ebe7"
+[data-icon='system-update']:before
+    content: "\ebe8"
+[data-icon='system-update-alt']:before
+    content: "\ebe9"
+[data-icon='tab']:before
+    content: "\ebea"
+[data-icon='tab-unselected']:before
+    content: "\ebeb"
+[data-icon='tablet']:before
+    content: "\ebec"
+[data-icon='tablet-android']:before
+    content: "\ebed"
+[data-icon='tablet-mac']:before
+    content: "\ebee"
+[data-icon='tap-and-play']:before
+    content: "\ebef"
+[data-icon='text-fields']:before
+    content: "\ebf0"
+[data-icon='text-format']:before
+    content: "\ebf1"
+[data-icon='texture']:before
+    content: "\ebf2"
+[data-icon='thumb-down']:before
+    content: "\ebf3"
+[data-icon='thumb-up']:before
+    content: "\ebf4"
+[data-icon='thumbs-up-down']:before
+    content: "\ebf5"
+[data-icon='timelapse']:before
+    content: "\ebf6"
+[data-icon='timeline']:before
+    content: "\ebf7"
+[data-icon='timer']:before
+    content: "\ebf8"
+[data-icon='timer-10']:before
+    content: "\ebf9"
+[data-icon='timer-3']:before
+    content: "\ebfa"
+[data-icon='timer-off']:before
+    content: "\ebfb"
+[data-icon='title']:before
+    content: "\ebfc"
+[data-icon='toc']:before
+    content: "\ebfd"
+[data-icon='today']:before
+    content: "\ebfe"
+[data-icon='toll']:before
+    content: "\ebff"
+[data-icon='tonality']:before
+    content: "\ec00"
+[data-icon='touch-app']:before
+    content: "\ec01"
+[data-icon='toys']:before
+    content: "\ec02"
+[data-icon='track-changes']:before
+    content: "\ec03"
+[data-icon='traffic']:before
+    content: "\ec04"
+[data-icon='train']:before
+    content: "\ec05"
+[data-icon='tram']:before
+    content: "\ec06"
+[data-icon='transfer-within-a-station']:before
+    content: "\ec07"
+[data-icon='transform']:before
+    content: "\ec08"
+[data-icon='translate']:before
+    content: "\ec09"
+[data-icon='trending-down']:before
+    content: "\ec0a"
+[data-icon='trending-flat']:before
+    content: "\ec0b"
+[data-icon='trending-up']:before
+    content: "\ec0c"
+[data-icon='tune']:before
+    content: "\ec0d"
+[data-icon='tv']:before
+    content: "\ec0e"
+[data-icon='unarchive']:before
+    content: "\ec0f"
+[data-icon='undo']:before
+    content: "\ec10"
+[data-icon='unfold-less']:before
+    content: "\ec11"
+[data-icon='unfold-more']:before
+    content: "\ec12"
+[data-icon='update']:before
+    content: "\ec13"
+[data-icon='usb']:before
+    content: "\ec14"
+[data-icon='verified-user']:before
+    content: "\ec15"
+[data-icon='vertical-align-bottom']:before
+    content: "\ec16"
+[data-icon='vertical-align-center']:before
+    content: "\ec17"
+[data-icon='vertical-align-top']:before
+    content: "\ec18"
+[data-icon='vibration']:before
+    content: "\ec19"
+[data-icon='video-call']:before
+    content: "\ec1a"
+[data-icon='video-label']:before
+    content: "\ec1b"
+[data-icon='video-library']:before
+    content: "\ec1c"
+[data-icon='videocam']:before
+    content: "\ec1d"
+[data-icon='videocam-off']:before
+    content: "\ec1e"
+[data-icon='videogame-asset']:before
+    content: "\ec1f"
+[data-icon='view-agenda']:before
+    content: "\ec20"
+[data-icon='view-array']:before
+    content: "\ec21"
+[data-icon='view-carousel']:before
+    content: "\ec22"
+[data-icon='view-column']:before
+    content: "\ec23"
+[data-icon='view-comfy']:before
+    content: "\ec24"
+[data-icon='view-compact']:before
+    content: "\ec25"
+[data-icon='view-day']:before
+    content: "\ec26"
+[data-icon='view-headline']:before
+    content: "\ec27"
+[data-icon='view-list']:before
+    content: "\ec28"
+[data-icon='view-module']:before
+    content: "\ec29"
+[data-icon='view-quilt']:before
+    content: "\ec2a"
+[data-icon='view-stream']:before
+    content: "\ec2b"
+[data-icon='view-week']:before
+    content: "\ec2c"
+[data-icon='vignette']:before
+    content: "\ec2d"
+[data-icon='visibility-off']:before
+    content: "\ec2e"
+[data-icon='voice-chat']:before
+    content: "\ec2f"
+[data-icon='voicemail']:before
+    content: "\ec30"
+[data-icon='volume-down']:before
+    content: "\ec31"
+[data-icon='volume-mute']:before
+    content: "\ec32"
+[data-icon='volume-off']:before
+    content: "\ec33"
+[data-icon='volume-up']:before
+    content: "\ec34"
+[data-icon='vpn-key']:before
+    content: "\ec35"
+[data-icon='vpn-lock']:before
+    content: "\ec36"
+[data-icon='wallpaper']:before
+    content: "\ec37"
+[data-icon='watch']:before
+    content: "\ec38"
+[data-icon='watch-later']:before
+    content: "\ec39"
+[data-icon='wb-auto']:before
+    content: "\ec3a"
+[data-icon='wb-incandescent']:before
+    content: "\ec3b"
+[data-icon='wb-iridescent']:before
+    content: "\ec3c"
+[data-icon='wb-sunny']:before
+    content: "\ec3d"
+[data-icon='wc']:before
+    content: "\ec3e"
+[data-icon='web']:before
+    content: "\ec3f"
+[data-icon='web-asset']:before
+    content: "\ec40"
+[data-icon='weekend']:before
+    content: "\ec41"
+[data-icon='whatshot']:before
+    content: "\ec42"
+[data-icon='widgets']:before
+    content: "\ec43"
+[data-icon='wifi']:before
+    content: "\ec44"
+[data-icon='wifi-lock']:before
+    content: "\ec45"
+[data-icon='wifi-tethering']:before
+    content: "\ec46"
+[data-icon='work']:before
+    content: "\ec47"
+[data-icon='wrap-text']:before
+    content: "\ec48"
+[data-icon='youtube-searched-for']:before
+    content: "\ec49"
+[data-icon='zoom-in']:before
+    content: "\ec4a"
+[data-icon='zoom-out']:before
+    content: "\ec4b"
+[data-icon='zoom-out-map']:before
+    content: "\ec4c"

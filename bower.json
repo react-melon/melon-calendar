@@ -1,14 +1,15 @@
 {
-  "name": "melon",
+  "name": "melon-calendar",
   "version": "0.3.0",
-  "homepage": "http://react-melon.github.io/melon",
+  "homepage": "http://react-melon.github.io/melon-calendar",
   "authors": [
-    "ludafa@outlook.com"
+    "ludafa@outlook.com",
+    "cxtom2008@gmail.com"
   ],
-  "description": "react ui components",
+  "description": "react calendar component",
   "main": "src",
   "moduleType": [
-    "amd"
+    "umd"
   ],
   "keywords": [
     "react",
