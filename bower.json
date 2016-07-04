@@ -1,0 +1,36 @@
+{
+  "name": "melon",
+  "version": "0.3.0",
+  "homepage": "http://react-melon.github.io/melon",
+  "authors": [
+    "ludafa@outlook.com"
+  ],
+  "description": "react ui components",
+  "main": "src",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "react",
+    "ui"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "dep",
+    "test",
+    "tests",
+    "lib",
+    "doc",
+    "example"
+  ],
+  "dependencies": {
+    "react": "^0.14.8",
+    "react-motion": "https://npmcdn.com/react-motion/bower.zip",
+    "melon-core": "^0.3.0",
+    "moment": "^2.13.0",
+    "melon": "^0.2.31"
+  }
+}
