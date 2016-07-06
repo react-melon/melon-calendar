@@ -10,7 +10,7 @@ import TestUtils from 'react-addons-test-utils';
 import then from '../then';
 
 import Calendar from '../../src/Calendar';
-import Confirm from '../../src/Confirm';
+import Confirm from 'melon/Confirm';
 import CalendarPanel from '../../src/calendar/Panel';
 
 /* eslint-disable max-nested-callbacks */

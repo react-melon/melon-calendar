@@ -11,7 +11,7 @@ import TestUtils from 'react-addons-test-utils';
 
 import CalendarDay from '../../../src/calendar/Day';
 import then from '../../then';
-import * as dateUtil from '../../../src/common/util/date';
+import * as dateUtil from '../../../src/util/date';
 
 expect.extend(expectJSX);
 
@@ -34,7 +34,7 @@ describe('CalendarDay', function () {
             <a
                 className="ui-calendar-day"
                 href="#"
-                onClick={() => {}} >
+                onClick={function () {}} >
                 {date.getDate()}
             </a>
         );

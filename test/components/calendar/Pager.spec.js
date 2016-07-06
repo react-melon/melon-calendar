@@ -9,7 +9,7 @@ import expectJSX from 'expect-jsx';
 // import ReactDOM from 'react-dom';
 import TestUtils from 'react-addons-test-utils';
 
-import Icon from '../../../src/Icon';
+import Icon from 'melon/Icon';
 import CalendarPager from '../../../src/calendar/Pager';
 import then from '../../then';
 
