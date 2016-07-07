@@ -11,7 +11,6 @@ script:
 after_script:
     - npm run coveralls
 addons:
-  sauce_connect:
-    username: "cxtom"
-    access_key:
-      secure: "XAdUL900DewbYYo+62Zcum9WoFm/teuTKbf+K4CExF8j3d82cvazj1Iqc9p2yM2imGaMGIpih1QW1OPS6dIlJRHY7IvjSJzUkUDSFbQjeyhm1BLhX//4Cj6oS236JderXiNZy8g/8iBf9jBZsIcsiYCuNunomvuOVtdsWz7LpmOiw+uTQoLL53WCvy4cLo8Nqb3ReFwM6t6iKfSM+NgpXlJC4mCFbzqtCKVwxKZZKF0pTYn2RlHQ4bQKaV+6RlnMP/WXeRWMXGasOXIgU50S9wCK2p3TiZGGfbsvP1bOyXJ6yM1ugaQr/TcKTZCBVZ5zFFAmsVUFW1Px/IAu00QVsEp2QU/Lh8LDJxvU0zcxbJ3xai8/vbb01QwjtqfuAnMhiP+zWkWjBhvXIJPFbZu791MTFOwtaL0Ll4wH3oE9ctLY1XwsXgXvrrFQ1ZK9dCWeKgByOnyrLnyhbnitsCgyfdj1Goek2gy+ugG9VU71ANTuBkq+srQt8JN9GGUZpLu0cDveAPQMmPZ5PHCDozzv8KU5PIOoVCollIXRSyRmPTNODcwOynwgvVj2DuPl+zbetP3Mk8Yf+nLab2wrjgmieVPy01VDy5DG8nYO13msJ/PwQ5X2e92QEHOsLvSFXhkt7p8viiejU9B1LQANul3N/BuZItz0CXT7Jns9rBqQru8="
+    sauce_connect:
+        username: "cxtom"
+        access_key: "8188dddc-e4af-432a-9a0d-9054e1e48b46"
