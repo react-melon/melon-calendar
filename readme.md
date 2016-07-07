@@ -18,7 +18,7 @@ DatePicker Components in [React Melon Family](http://react-melon.github.io/melon
 
 ![Calendar](./example/screenshots/calendar-web.gif)
 
-## install
+## Install
 
 ### npm
 
