@@ -10,15 +10,19 @@ DatePicker Components in [React Melon Family](http://react-melon.github.io/melon
 
 ### members
 
-* Calendar - pick a date
-* RangeCalendar - Select a date interval by day
-* UnitCalendar - Select a date interval by week, month or year
+* **Calendar** - pick a date
+* **RangeCalendar** - Select a date interval by day
+* **UnitCalendar** - Select a date interval by week, month or year
 
 ## Screenshots
 
 * Calendar
 
 ![Calendar](./example/screenshots/calendar-web.gif)
+
+* RangeCalendar & UnitCalendar
+
+![Calendar](./example/screenshots/rangecalendar.gif)
 
 ## Install
 
@@ -35,9 +39,13 @@ bower install melon-calendar
 ## Usage
 
 ```js
-import Calendar from 'melon-calendar/Calendar';
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+import Calendar from 'melon-calendar/Calendar';
+import RangeCalendar from 'melon-calendar/RangeCalendar';
+import UnitCalendar from 'melon-calendar/UnitCalendar';
+
 ReactDOM.render(<Calendar />, container);
 ```
 
