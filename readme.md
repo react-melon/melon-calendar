@@ -10,13 +10,13 @@ DatePicker Components in [React Melon Family](http://react-melon.github.io/melon
 
 [![Coverage Status](https://coveralls.io/repos/github/react-melon/melon-calendar/badge.svg?branch=master)](https://coveralls.io/github/react-melon/melon-calendar?branch=master)
 [![Version](https://img.shields.io/npm/v/melon-calendar.svg)](https://www.npmjs.com/package/melon-calendar)
-[![Build][https://img.shields.io/travis/react-melon/melon-calendar.svg?style=flat-square]][https://travis-ci.org/react-melon/melon-calendar]
+[![Build][https://img.shields.io/travis/react-melon/melon-calendar.svg?style=flat-square]](https://travis-ci.org/react-melon/melon-calendar)
 
 ## Screenshots
 
 * Calendar
 
-![Calendar](https://bos.nj.bpc.baidu.com/mms-res/react-melon/screenshots/calendar.gif)
+![Calendar](https://bos.nj.bpc.baidu.com/mms-res/react-melon/screenshots/calendar-web.gif)
 
 ## install
 
