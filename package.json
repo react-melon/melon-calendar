@@ -1,6 +1,6 @@
 {
   "name": "melon-calendar",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "React Calendar Component",
   "main": "./src",
   "directories": {
@@ -47,7 +47,8 @@
     "coveralls": "cat ./coverage/lcov/lcov.info | ./node_modules/.bin/coveralls",
     "test:local": "./node_modules/.bin/karma start",
     "lint": "fecs src",
-    "build": "sh tool/build.sh"
+    "build": "sh tool/build.sh",
+    "release": "sh tool/release.sh"
   },
   "repository": {
     "type": "git",

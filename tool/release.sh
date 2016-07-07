@@ -7,3 +7,7 @@ mkdir -p lib
 cp -rf dist/** lib
 cp package.json README.md lib
 rm -rf output
+
+cd lib
+
+npm publish
