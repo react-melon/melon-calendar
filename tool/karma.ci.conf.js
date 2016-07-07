@@ -3,7 +3,10 @@
  * @author cxtom <cxtom2008@gmail.com>
  */
 
+/* eslint-disable no-console */
+
 var _ = require('lodash');
+var fs = require('fs');
 
 var karmaConfig = require('./karma/config');
 
@@ -28,6 +31,19 @@ var customLaunchers = {
 };
 
 module.exports = function (config) {
+
+    // Use ENV vars on Travis and sauce.json locally to get credentials
+    if (!process.env.SAUCE_USERNAME) {
+        if (!fs.existsSync('./sauce.json')) {
+            console.log('Create a sauce.json with your credentials based on the sauce-sample.json file.');
+            process.exit(1);
+        }
+        else {
+            process.env.SAUCE_USERNAME = require('./sauce').username;
+            process.env.SAUCE_ACCESS_KEY = require('./sauce').accessKey;
+        }
+    }
+
     config.set(_.extend(karmaConfig, {
         sauceLabs: {
             testName: 'Web App Unit Tests'
