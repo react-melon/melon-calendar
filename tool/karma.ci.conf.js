@@ -32,7 +32,6 @@ var customLaunchers = {
     slSafari: {
         base: 'SauceLabs',
         browserName: 'safari',
-        platform: 'OS X El Capitan 10.11',
         version: '9'
     }
 };
