@@ -28,6 +28,12 @@ var customLaunchers = {
         platform: 'Windows 8.1',
         version: '11'
     }
+    // slIE10: {
+    //     base: 'SauceLabs',
+    //     browserName: 'internet explorer',
+    //     platform: 'Windows 8',
+    //     version: '10'
+    // }
 };
 
 module.exports = function (config) {
@@ -40,7 +46,8 @@ module.exports = function (config) {
 
     config.set(_.extend(karmaConfig, {
         sauceLabs: {
-            testName: 'Web App Unit Tests'
+            'testName': 'Web App Unit Tests',
+            'public': 'public'
         },
         customLaunchers: customLaunchers,
         browsers: Object.keys(customLaunchers),
