@@ -1,5 +1,9 @@
 # melon-calendar
 
+[![Coverage Status](https://coveralls.io/repos/github/react-melon/melon-calendar/badge.svg?branch=master)](https://coveralls.io/github/react-melon/melon-calendar?branch=master)
+[![Version](https://img.shields.io/npm/v/melon-calendar.svg)](https://www.npmjs.com/package/melon-calendar)
+[![Build](https://img.shields.io/travis/react-melon/melon-calendar.svg?style=flat-square)](https://travis-ci.org/react-melon/melon-calendar)
+
 DatePicker Components in [React Melon Family](http://react-melon.github.io/melon/)
 
 ### members
@@ -8,15 +12,11 @@ DatePicker Components in [React Melon Family](http://react-melon.github.io/melon
 * RangeCalendar - Select a date interval by day
 * UnitCalendar - Select a date interval by week, month or year
 
-[![Coverage Status](https://coveralls.io/repos/github/react-melon/melon-calendar/badge.svg?branch=master)](https://coveralls.io/github/react-melon/melon-calendar?branch=master)
-[![Version](https://img.shields.io/npm/v/melon-calendar.svg)](https://www.npmjs.com/package/melon-calendar)
-[![Build](https://img.shields.io/travis/react-melon/melon-calendar.svg?style=flat-square)](https://travis-ci.org/react-melon/melon-calendar)
-
 ## Screenshots
 
 * Calendar
 
-<img src="https://bos.nj.bpc.baidu.com/mms-res/react-melon/screenshots/calendar-web.gif" title="Calendar" alt="Calendar" style="max-width:100%;">
+![Calendar](https://github.com/react-melon/melon-calendar/raw/master/example/screenshots/web-calendar.gif)
 
 ## install
 
