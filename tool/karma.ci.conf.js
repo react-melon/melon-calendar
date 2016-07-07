@@ -6,7 +6,6 @@
 /* eslint-disable no-console */
 
 var _ = require('lodash');
-// var fs = require('fs');
 
 var karmaConfig = require('./karma/config');
 
@@ -14,25 +13,20 @@ var customLaunchers = {
     slChrome: {
         base: 'SauceLabs',
         browserName: 'chrome',
-        platform: 'Windows 7',
-        version: '45'
+        version: '48',
+        platform: 'Windows 7'
     },
     slFirefox: {
         base: 'SauceLabs',
         browserName: 'firefox',
-        version: '47',
-        platform: 'Windows 7'
+        version: '45',
+        platform: 'Windows 10'
     },
     slIE11: {
         base: 'SauceLabs',
         browserName: 'internet explorer',
         platform: 'Windows 8.1',
         version: '11'
-    },
-    slSafari: {
-        base: 'SauceLabs',
-        browserName: 'safari',
-        version: '9'
     }
 };
 
@@ -50,7 +44,7 @@ module.exports = function (config) {
         },
         customLaunchers: customLaunchers,
         browsers: Object.keys(customLaunchers),
-        reporters: ['progress', 'coverage', 'mocha', 'dots', 'saucelabs'],
+        reporters: ['coverage', 'mocha', 'dots', 'saucelabs'],
         singleRun: true
     }));
 };

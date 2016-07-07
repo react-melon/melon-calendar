@@ -4,6 +4,8 @@
 [![Version](https://img.shields.io/npm/v/melon-calendar.svg)](https://www.npmjs.com/package/melon-calendar)
 [![Build](https://img.shields.io/travis/react-melon/melon-calendar.svg?style=flat-square)](https://travis-ci.org/react-melon/melon-calendar)
 
+[![Selenium Test Status](https://saucelabs.com/browser-matrix/melon-calendar.svg)](https://saucelabs.com/u/melon-calendar)
+
 DatePicker Components in [React Melon Family](http://react-melon.github.io/melon/)
 
 ### members
