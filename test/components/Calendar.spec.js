@@ -3,7 +3,7 @@
  * @author cxtom(cxtom2010@gmail.com)
  */
 
-import React from 'react';
+import React, {Component} from 'react';
 import expect from 'expect';
 import TestUtils from 'react-addons-test-utils';
 
@@ -146,6 +146,47 @@ describe('Calendar', () => {
         })
         .then(() => {
             expect(spy.calls.length).toBe(1);
+            done();
+        });
+
+    });
+
+    it('controlled', done => {
+
+        const changeSpy = expect.createSpy();
+
+        class TestComponent extends Component {
+
+            constructor(props) {
+                super(props);
+                this.state = {value: '2014-06-12'};
+            }
+
+            render() {
+                return (
+                    <Calendar
+                        value={this.state.value}
+                        autoConfirm={true}
+                        onChange={e => {
+                            this.setState({value: e.value});
+                            changeSpy();
+                        }} />
+                );
+            }
+        }
+
+        component = TestUtils.renderIntoDocument(
+            <TestComponent />
+        );
+
+        calendar = TestUtils.findRenderedComponentWithType(component, Calendar);
+
+        expect(calendar.getValue()).toEqual('2014-06-12');
+
+        calendar.onDateChange({value: '2015-05-10'});
+
+        then(() => {
+            expect(calendar.getValue()).toEqual('2015-05-10');
             done();
         });
 

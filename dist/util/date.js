@@ -20,7 +20,6 @@
     exports.isDate = isDate;
     exports.addDays = addDays;
     exports.addMonths = addMonths;
-    exports.addYears = addYears;
     exports.getDaysInMonth = getDaysInMonth;
     exports.getFirstDayOfMonth = getFirstDayOfMonth;
     exports.getShortMonth = getShortMonth;
@@ -78,17 +77,6 @@
      */
     function addMonths(d, months) {
         return (0, _moment2['default'])(d).add(months, 'months').toDate();
-    }
-
-    /**
-     * 增加N年后的日期
-     *
-     * @param  {Date}   d     日期对象
-     * @param  {number} years 增加的年数
-     * @return {Date}   修改后的日期对象
-     */
-    function addYears(d, years) {
-        return (0, _moment2['default'])(d).add(years, 'years').toDate();
     }
 
     /**

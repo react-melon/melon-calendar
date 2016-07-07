@@ -41,17 +41,6 @@ export function addMonths(d, months) {
 }
 
 /**
- * 增加N年后的日期
- *
- * @param  {Date}   d     日期对象
- * @param  {number} years 增加的年数
- * @return {Date}   修改后的日期对象
- */
-export function addYears(d, years) {
-    return moment(d).add(years, 'years').toDate();
-}
-
-/**
  * 获取某一月的天数
  *
  * @param  {Date} d   日期
