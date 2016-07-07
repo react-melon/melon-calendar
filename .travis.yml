@@ -10,7 +10,3 @@ script:
     - npm run test-ci
 after_script:
     - npm run coveralls
-addons:
-    sauce_connect:
-        username: "cxtom"
-        access_key: "8188dddc-e4af-432a-9a0d-9054e1e48b46"
