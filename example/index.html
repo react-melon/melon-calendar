@@ -36,18 +36,6 @@ require(['react', 'react-dom', 'App', 'config'], function (React, ReactDOM, App,
         var hash = window.location.hash;
         var name = hash ? hash.slice(2) : 'Calendar';
 
-        // ReactDOM.render(
-        //     React.createElement(
-        //         App,
-        //         {
-        //             components: config.components,
-        //             component: name,
-        //             Component: null
-        //         }
-        //     ),
-        //     document.getElementById('app')
-        // );
-
         require([name], function (Component) {
             ReactDOM.render(
                 React.createElement(

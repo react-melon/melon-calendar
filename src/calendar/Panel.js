@@ -121,11 +121,12 @@ export default class CalendarPanel extends Component {
     render() {
 
         const {
-            date,
             lang,
             begin,
             end
         } = this.props;
+
+        const date = this.state.date;
 
         const {selectorType, month} = this.state;
 

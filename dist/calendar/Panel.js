@@ -131,10 +131,13 @@
 
         CalendarPanel.prototype.render = function render() {
             var _props2 = this.props;
-            var date = _props2.date;
             var lang = _props2.lang;
             var begin = _props2.begin;
             var end = _props2.end;
+
+
+            var date = this.state.date;
+
             var _state = this.state;
             var selectorType = _state.selectorType;
             var month = _state.month;
