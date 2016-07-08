@@ -290,3 +290,8 @@ Calendar.propTypes = {
     })
 
 };
+
+Calendar.childContextTypes = InputComponent.childContextTypes;
+
+Calendar.contextTypes = InputComponent.contextTypes;
+
