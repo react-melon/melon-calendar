@@ -1,8 +1,8 @@
 # melon-calendar
 
 [![Coverage Status](https://coveralls.io/repos/github/react-melon/melon-calendar/badge.svg?branch=master)](https://coveralls.io/github/react-melon/melon-calendar?branch=master)
-[![Version](https://img.shields.io/npm/v/melon-calendar.svg)](https://www.npmjs.com/package/melon-calendar)
-[![Build](https://img.shields.io/travis/react-melon/melon-calendar.svg?style=flat-square)](https://travis-ci.org/react-melon/melon-calendar)
+[![Version](https://badge.fury.io/js/melon-calendar.svg)](https://www.npmjs.com/package/melon-calendar)
+[![Build](https://travis-ci.org/react-melon/melon-calendar.svg?style=flat-square)](https://travis-ci.org/react-melon/melon-calendar)
 
 [![Selenium Test Status](https://saucelabs.com/browser-matrix/melon-calendar.svg)](https://saucelabs.com/u/melon-calendar)
 
