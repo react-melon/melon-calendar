@@ -285,4 +285,8 @@
         })
 
     });
+
+    Calendar.childContextTypes = _InputComponent3['default'].childContextTypes;
+
+    Calendar.contextTypes = _InputComponent3['default'].contextTypes;
 });

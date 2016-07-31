@@ -1,12 +1,10 @@
 #!/bin/bash
 
-rm -rf dist lib
-edp build -f
-mv output/asset dist
-mkdir -p lib
-cp -rf dist/** lib
+rm -rf lib
+edp build -f -s npm
+mv output/asset lib
 cp package.json README.md lib
-rm -rf output
+rm -rf output dist
 
 cd lib
 

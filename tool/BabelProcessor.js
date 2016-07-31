@@ -43,8 +43,10 @@ Babel.prototype.process = function (file, processContext, callback) {
 
     var prefix = 'var babelHelpers = require("' + babelHelperRelativePath + '");\n';
 
+    var fileData = this.helperOutput === 'var' ? file.data : prefix + file.data;
+
     var result = babel.transform(
-        prefix + file.data,
+        fileData,
         Object.assign(
             {
                 filename: file.path
@@ -53,7 +55,7 @@ Babel.prototype.process = function (file, processContext, callback) {
         )
     );
 
-    var code = result.code;
+    var code = this.helperOutput === 'var' ? prefix + result.code : result.code;
 
     if (result.metadata.usedHelpers.length) {
         processContext.usedHelpers = processContext
@@ -71,7 +73,11 @@ Babel.prototype.process = function (file, processContext, callback) {
 
 Babel.prototype.afterAll = function (processContext) {
 
-    var usedHelpers = babel.buildExternalHelpers(processContext.usedHelpers, 'umd');
+    var usedHelpers = babel.buildExternalHelpers(processContext.usedHelpers, this.helperOutput || 'umd');
+
+    if (this.helperOutput === 'var') {
+        usedHelpers += '\nmodule.exports = babelHelpers;';
+    }
 
     var baseDir = processContext.baseDir;
     var relativePath = path.relative(baseDir, 'src/babelHelpers.js');

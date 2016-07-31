@@ -1,8 +1,8 @@
 {
   "name": "melon-calendar",
-  "version": "0.3.2",
+  "version": "0.3.5",
   "description": "React Calendar Component",
-  "main": "./src",
+  "main": "Calendar.js",
   "directories": {
     "doc": "doc",
     "test": "test",
@@ -30,7 +30,6 @@
     "karma-browserify": "^5.0.5",
     "karma-chrome-launcher": "^1.0.1",
     "karma-coverage": "^1.0.0",
-    "karma-firefox-launcher": "^1.0.0",
     "karma-mocha": "^1.1.1",
     "karma-mocha-reporter": "^2.0.4",
     "karma-sauce-launcher": "^1.0.0",
