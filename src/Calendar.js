@@ -1,6 +1,6 @@
 /**
  * @file melon/Calendar
- * @author cxtom<cxtom2010@gmail.com>
+ * @author cxtom<cxtom2008@gmail.com>
  */
 
 import React, {PropTypes} from 'react';
@@ -294,4 +294,3 @@ Calendar.propTypes = {
 Calendar.childContextTypes = InputComponent.childContextTypes;
 
 Calendar.contextTypes = InputComponent.contextTypes;
-

@@ -1,6 +1,6 @@
 {
   "name": "melon-calendar",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "description": "React Calendar Component",
   "main": "Calendar.js",
   "directories": {
@@ -38,7 +38,6 @@
     "nib": "^1.1.0",
     "react-addons-test-utils": "^0.14.3",
     "stylus": "^0.54.2",
-    "swig": "^1.4.2",
     "watchify": "^3.7.0"
   },
   "scripts": {
@@ -61,7 +60,7 @@
     "ui",
     "components"
   ],
-  "author": "cxtom2008@gmail.com",
+  "author": "cxtom <cxtom2008@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/react-melon/melon-calendar/issues"

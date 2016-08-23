@@ -1,6 +1,6 @@
 /**
  * @file Calendar/CalendarSelectorItem
- * @author cxtom(cxtom2010@gmail.com)
+ * @author cxtom(cxtom2008@gmail.com)
  */
 
 import React, {PropTypes} from 'react';
@@ -51,4 +51,3 @@ CalendarSelectorItem.propTypes = {
     selected: PropTypes.bool,
     mode: PropTypes.oneOf(['month', 'year'])
 };
-

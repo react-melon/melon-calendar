@@ -1,6 +1,6 @@
 /**
  * @file melon date tools
- * @author cxtom(cxtom2010@gmail.com)
+ * @author cxtom(cxtom2008@gmail.com)
  */
 
 import moment from 'moment';

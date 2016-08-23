@@ -34,7 +34,7 @@
 
     /**
      * @file melon/Calendar
-     * @author cxtom<cxtom2010@gmail.com>
+     * @author cxtom<cxtom2008@gmail.com>
      */
 
     var cx = (0, _cxBuilder.create)('Calendar');

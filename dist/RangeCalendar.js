@@ -36,8 +36,8 @@
 
     /**
      * @file melon/RangeCalendar
-     * @author cxtom <cxtom2010@gmail.com>
-     * @author leon <ludafa@outlook.com>
+     * @author cxtom <cxtom2008@gmail.com>
+     *         leon <ludafa@outlook.com>
      */
 
     var cx = (0, _cxBuilder.create)('RangeCalendar');
@@ -105,7 +105,7 @@
             var valueEnd = this.parseDate(value[1]);
 
             // 这里我们需要一个全新的 value
-            value = [valueBegin && DateTime.isAfterDate(begin, valueBegin) ? begin : valueBegin, valueEnd && DateTime.isBeforeDate(end, valueEnd) ? end : valueEnd];
+            value = [begin && DateTime.isAfterDate(begin, valueBegin) ? begin : valueBegin, end && DateTime.isBeforeDate(end, valueEnd) ? end : valueEnd];
 
             return value;
         };
