@@ -55,5 +55,4 @@ ReactDOM.render(<Calendar />, container);
 
 ```
 npm test
-npm run test:local
 ```

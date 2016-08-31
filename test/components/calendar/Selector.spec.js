@@ -5,7 +5,6 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import expect from 'expect';
 import TestUtils from 'react-addons-test-utils';
 
 import CalendarSelector from '../../../src/calendar/Selector';
@@ -70,7 +69,7 @@ describe('CalendarSelector', function () {
 
     it('click', done => {
 
-        const spy = expect.createSpy();
+        const spy = jasmine.createSpy();
 
         component = TestUtils.renderIntoDocument(
             <CalendarSelector
@@ -85,8 +84,8 @@ describe('CalendarSelector', function () {
         TestUtils.Simulate.click(ReactDOM.findDOMNode(years[0]));
 
         then(() => {
-            expect(spy.calls.length).toBe(1);
-            expect(spy.calls[0].arguments[0].date.getFullYear()).toBe(2006);
+            expect(spy.calls.count()).toBe(1);
+            expect(spy.calls.argsFor(0)[0].date.getFullYear()).toBe(2006);
 
             done();
         });

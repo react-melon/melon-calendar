@@ -4,17 +4,11 @@
  */
 
 import React from 'react';
-import expect from 'expect';
-import expectJSX from 'expect-jsx';
-// import ReactDOM from 'react-dom';
 import TestUtils from 'react-addons-test-utils';
 
 import Icon from 'melon/Icon';
 import CalendarPager from '../../../src/calendar/Pager';
 import then from '../../then';
-
-
-expect.extend(expectJSX);
 
 describe('CalendarPager', function () {
 
@@ -104,7 +98,7 @@ describe('CalendarPager', function () {
 
     it('click', done => {
 
-        const spy = expect.createSpy();
+        const spy = jasmine.createSpy();
         const date = new Date(2015, 10, 1);
 
         const component = TestUtils.renderIntoDocument(<CalendarPager month={date} onChange={spy} />);
@@ -116,14 +110,14 @@ describe('CalendarPager', function () {
         /* eslint-disable fecs-no-arguments */
         then(() => {
             expect(spy).toHaveBeenCalled();
-            expect(spy.calls[0].arguments[0]).toEqual({target: component, month: new Date(2015, 9, 1)});
+            expect(spy.calls.argsFor(0)[0]).toEqual({target: component, month: new Date(2015, 9, 1)});
 
             // 下一月
             TestUtils.Simulate.click(icons[1]);
         })
         .then(() => {
-            expect(spy.calls.length).toBe(2);
-            expect(spy.calls[1].arguments[0]).toEqual({target: component, month: new Date(2015, 11, 1)});
+            expect(spy.calls.count()).toBe(2);
+            expect(spy.calls.argsFor(1)[0]).toEqual({target: component, month: new Date(2015, 11, 1)});
 
             done();
         });

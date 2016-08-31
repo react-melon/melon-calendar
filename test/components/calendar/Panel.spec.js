@@ -4,7 +4,6 @@
  */
 
 import React from 'react';
-import expect from 'expect';
 import TestUtils from 'react-addons-test-utils';
 
 import CalendarPanel from '../../../src/calendar/Panel';
@@ -16,7 +15,7 @@ describe('CalendarPanel', function () {
 
     let component;
     let header;
-    let spy = expect.createSpy();
+    let spy = jasmine.createSpy();
 
     const date = new Date(2016, 0, 12);
 
@@ -73,7 +72,7 @@ describe('CalendarPanel', function () {
 
         then(() => {
             expect(spy).toHaveBeenCalled();
-            expect(spy.calls[0].arguments[0].value.getDate()).toBe(16);
+            expect(spy.calls.argsFor(0)[0].value.getDate()).toBe(16);
             done();
         });
     });

@@ -5,7 +5,6 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import expect from 'expect';
 import TestUtils from 'react-addons-test-utils';
 
 import CalendarMonth from '../../../src/calendar/Month';
@@ -102,7 +101,7 @@ describe('CalendarMonth', function () {
 
     it('click', done => {
 
-        const spy = expect.createSpy();
+        const spy = jasmine.createSpy();
 
         component = TestUtils.renderIntoDocument(
             <CalendarMonth
@@ -117,8 +116,8 @@ describe('CalendarMonth', function () {
         TestUtils.Simulate.click(ReactDOM.findDOMNode(days[5]));
 
         then(() => {
-            expect(spy.calls.length).toBe(1);
-            expect(spy.calls[0].arguments[0]).toEqual({
+            expect(spy.calls.count()).toBe(1);
+            expect(spy.calls.argsFor(0)[0]).toEqual({
                 target: component,
                 date: new Date(2016, 0, 1)
             });

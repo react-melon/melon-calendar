@@ -4,14 +4,10 @@
  */
 
 import React from 'react';
-import expect from 'expect';
-import expectJSX from 'expect-jsx';
 import {createRenderer} from 'react-addons-test-utils';
 
 import CalendarHeader from '../../../src/calendar/Header';
 import * as dateUtil from '../../../src/util/date';
-
-expect.extend(expectJSX);
 
 describe('CalendarHeader', function () {
 

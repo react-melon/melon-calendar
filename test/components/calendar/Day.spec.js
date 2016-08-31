@@ -4,16 +4,12 @@
  */
 
 import React from 'react';
-import expect from 'expect';
 import ReactDOM from 'react-dom';
-import expectJSX from 'expect-jsx';
 import TestUtils from 'react-addons-test-utils';
 
 import CalendarDay from '../../../src/calendar/Day';
 import then from '../../then';
 import * as dateUtil from '../../../src/util/date';
-
-expect.extend(expectJSX);
 
 describe('CalendarDay', function () {
 
@@ -71,7 +67,7 @@ describe('CalendarDay', function () {
     });
 
     it('click', done => {
-        const spy = expect.createSpy();
+        const spy = jasmine.createSpy();
         const date = new Date();
 
         let node = document.createElement('div');
@@ -81,14 +77,14 @@ describe('CalendarDay', function () {
         then(() => {
             expect(spy).toHaveBeenCalled();
             /* eslint-disable fecs-no-arguments */
-            expect(spy.calls[0].arguments[0]).toEqual({target: component, date});
+            expect(spy.calls.argsFor(0)[0]).toEqual({target: component, date});
             /* eslint-enable fecs-no-arguments */
 
             component = ReactDOM.render(<CalendarDay date={date} onClick={spy} disabled/>, node);
             TestUtils.Simulate.click(ReactDOM.findDOMNode(component));
         })
         .then(() => {
-            expect(spy.calls.length).toBe(1);
+            expect(spy.calls.count()).toBe(1);
             ReactDOM.unmountComponentAtNode(node);
             node = null;
             done();

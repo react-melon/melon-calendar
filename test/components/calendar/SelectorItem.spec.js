@@ -4,16 +4,11 @@
  */
 
 import React from 'react';
-import expect from 'expect';
-import expectJSX from 'expect-jsx';
 import ReactDOM from 'react-dom';
 import TestUtils from 'react-addons-test-utils';
 
 import CalendarSelectorItem from '../../../src/calendar/SelectorItem';
 import then from '../../then';
-
-
-expect.extend(expectJSX);
 
 describe('CalendarSelectorItem', function () {
 
@@ -41,7 +36,7 @@ describe('CalendarSelectorItem', function () {
 
     it('click', done => {
 
-        const spy = expect.createSpy();
+        const spy = jasmine.createSpy();
         const date = new Date();
 
         let node = document.createElement('div');
@@ -50,7 +45,7 @@ describe('CalendarSelectorItem', function () {
 
         then(() => {
             expect(spy).toHaveBeenCalled();
-            expect(spy.calls[0].arguments[0]).toEqual({target: component, date, mode: 'year'});
+            expect(spy.calls.allArgs()[0][0]).toEqual({target: component, date, mode: 'year'});
             ReactDOM.unmountComponentAtNode(node);
             node = null;
             done();
