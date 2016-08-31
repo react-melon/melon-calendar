@@ -9,7 +9,7 @@ import TestUtils from 'react-addons-test-utils';
 
 import CalendarDay from '../../../src/calendar/Day';
 import then from '../../then';
-import * as dateUtil from '../../../src/util/date';
+import * as dateUtil from '../../../src/util';
 
 describe('CalendarDay', function () {
 

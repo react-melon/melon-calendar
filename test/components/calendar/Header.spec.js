@@ -7,7 +7,7 @@ import React from 'react';
 import {createRenderer} from 'react-addons-test-utils';
 
 import CalendarHeader from '../../../src/calendar/Header';
-import * as dateUtil from '../../../src/util/date';
+import * as dateUtil from '../../../src/util';
 
 describe('CalendarHeader', function () {
 
