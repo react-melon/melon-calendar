@@ -6,7 +6,7 @@
 import React, {Component, PropTypes} from 'react';
 import {create} from 'melon-core/classname/cxBuilder';
 import Icon from 'melon/Icon';
-import * as DateTime from '../util/date';
+import * as DateTime from '../util';
 
 const cx = create('CalendarPager');
 

@@ -12,3 +12,7 @@ tools
 .bower.json
 gulpfile.js
 example
+.travis.yml
+.coveralls.yml
+.fecsrc
+.fecsignore

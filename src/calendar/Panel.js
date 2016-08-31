@@ -11,7 +11,7 @@ import Selector from './Selector';
 import Pager from './Pager';
 import Month from './Month';
 
-import * as DateTime from '../util/date';
+import * as DateTime from '../util';
 
 const cx = create('CalendarPanel');
 

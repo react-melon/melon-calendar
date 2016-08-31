@@ -9,7 +9,7 @@ import {create} from 'melon-core/classname/cxBuilder';
 import InputComponent from 'melon-core/InputComponent';
 
 import BoxGroup from 'melon/BoxGroup';
-import * as date from './util/date';
+import * as date from './util';
 
 const cx = create('UnitCalendar');
 

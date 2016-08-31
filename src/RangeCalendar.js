@@ -16,7 +16,7 @@ import Confirm from 'melon/Confirm';
 
 import Calendar from './Calendar';
 import Panel from './calendar/Panel';
-import * as DateTime from './util/date';
+import * as DateTime from './util';
 
 const cx = create('RangeCalendar');
 

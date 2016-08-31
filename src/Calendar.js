@@ -14,7 +14,7 @@ import Icon  from 'melon/Icon';
 import Confirm from 'melon/Confirm';
 
 import Panel from './calendar/Panel';
-import * as DateTime from './util/date';
+import * as DateTime from './util';
 
 const cx = create('Calendar');
 

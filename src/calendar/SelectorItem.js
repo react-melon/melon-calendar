@@ -6,7 +6,7 @@
 import React, {PropTypes} from 'react';
 import {create} from 'melon-core/classname/cxBuilder';
 import Item from './Item';
-import * as DateTime from '../util/date';
+import * as DateTime from '../util';
 
 const cx = create('CalendarSelectorItem');
 
