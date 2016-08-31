@@ -25,7 +25,8 @@
     "tests",
     "lib",
     "doc",
-    "example"
+    "example",
+    "tools"
   ],
   "dependencies": {
     "react": "^0.14.8",

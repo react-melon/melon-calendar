@@ -4,7 +4,6 @@
  */
 
 import React, {Component} from 'react';
-import expect from 'expect';
 import TestUtils from 'react-addons-test-utils';
 
 import then from '../then';
@@ -119,7 +118,7 @@ describe('Calendar', () => {
 
     it('autoConfirm', done => {
 
-        const spy = expect.createSpy();
+        const spy = jasmine.createSpy();
 
         component = TestUtils.renderIntoDocument(
             <Calendar
@@ -140,12 +139,12 @@ describe('Calendar', () => {
             calendar.setState({value: '2014-06-12'});
         })
         .then(() => {
-            expect(spy.calls.length).toBe(1);
+            expect(spy).toHaveBeenCalled();
             expect(calendar.getValue()).toBe('2014-06-12');
             panel.onDateChange({date});
         })
         .then(() => {
-            expect(spy.calls.length).toBe(1);
+            expect(spy.calls.count()).toBe(1);
             done();
         });
 
@@ -153,7 +152,7 @@ describe('Calendar', () => {
 
     it('controlled', done => {
 
-        const changeSpy = expect.createSpy();
+        const changeSpy = jasmine.createSpy();
 
         class TestComponent extends Component {
 

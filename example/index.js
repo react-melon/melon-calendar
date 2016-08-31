@@ -4,12 +4,15 @@
  */
 
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 import Title from 'melon/Title';
 
 import Calendar from '../src/Calendar';
 import RangeCalendar from '../src/RangeCalendar';
 import UnitCalendar from '../src/UnitCalendar';
+
+import './index.styl';
 
 class View extends React.Component {
 
@@ -131,5 +134,7 @@ class View extends React.Component {
     }
 }
 
-
-module.exports = View;
+ReactDOM.render(
+    <View />,
+    document.getElementById('app')
+);

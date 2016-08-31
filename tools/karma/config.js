@@ -7,7 +7,6 @@ var path = require('path');
 
 var NODE_MODULES_FILES = '**/node_modules/**';
 
-
 var babelOpts = {
     presets: ['es2015', 'es2015-loose', 'react', 'stage-1'],
     plugins: [
@@ -17,15 +16,14 @@ var babelOpts = {
     ignore: [NODE_MODULES_FILES]
 };
 
-
 module.exports = {
     basePath: path.join(__dirname, '../../'),
-    frameworks: ['browserify', 'mocha'],
+    frameworks: ['browserify', 'jasmine'],
     files: [
-        './test/components/*.spec.js',
-        './test/components/**/*.spec.js'
+        './node_modules/jasmine-expect-jsx/dist/jasmine-expect-jsx.js', // expect-jsx
+        './test/**/*.spec.js'
     ],
-    browsers: ['Chrome', 'Firefox'],
+    browsers: ['Chrome'],
     preprocessors: {
         './test/components/*.spec.js': ['browserify'],
         './test/components/**/*.spec.js': ['browserify'],
@@ -53,7 +51,7 @@ module.exports = {
         extensions: ['.js']
     },
     // logLevel: config.LOG_DEBUG,
-    reporters: ['progress', 'coverage', 'mocha', 'dots'],
+    reporters: ['coverage', 'mocha'],
     coverageReporter: {
         dir: path.join(__dirname, '../../coverage'),
         reporters: [
@@ -64,5 +62,4 @@ module.exports = {
     },
     // if true, Karma captures browsers, runs the tests and exits
     singleRun: true
-
 };

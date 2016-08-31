@@ -1,52 +1,64 @@
 {
   "name": "melon-calendar",
-  "version": "0.3.6",
+  "version": "1.0.0",
   "description": "React Calendar Component",
-  "main": "Calendar.js",
+  "main": "lib/Calendar.js",
   "directories": {
     "doc": "doc",
     "test": "test",
     "example": "example"
   },
   "devDependencies": {
-    "babel-core": "^6.7.2",
+    "babel-core": "^6.14.0",
     "babel-istanbul": "^0.11.0",
-    "babel-plugin-external-helpers": "^6.5.0",
-    "babel-plugin-transform-es2015-modules-amd": "^6.8.0",
-    "babel-plugin-transform-es2015-modules-umd": "^6.6.5",
-    "babel-plugin-transform-es3-member-expression-literals": "^6.5.0",
-    "babel-plugin-transform-es3-property-literals": "^6.5.0",
-    "babel-preset-es2015": "^6.6.0",
-    "babel-preset-es2015-loose": "^7.0.0",
-    "babel-preset-react": "^6.5.0",
-    "babel-preset-stage-1": "^6.5.0",
+    "babel-loader": "^6.2.5",
+    "babel-plugin-external-helpers": "^6.8.0",
+    "babel-plugin-external-helpers-insert-require": "^1.0.0",
+    "babel-plugin-transform-es2015-modules-umd": "^6.12.0",
+    "babel-plugin-transform-es3-member-expression-literals": "^6.8.0",
+    "babel-plugin-transform-es3-property-literals": "^6.8.0",
+    "babel-plugin-transform-object-rest-spread": "^6.8.0",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
     "babelify": "^7.3.0",
     "browserify": "^13.0.1",
     "browserify-istanbul": "^2.0.0",
     "coveralls": "^2.11.9",
-    "expect": "^1.12.2",
-    "expect-jsx": "^2.0.1",
+    "css-loader": "^0.24.0",
+    "file-loader": "^0.9.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-babel-external-helpers": "^2.0.2",
+    "gulp-clean": "^0.3.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "jasmine-core": "^2.4.1",
+    "jasmine-expect-jsx": "^1.1.2",
     "karma": "^1.1.0",
     "karma-browserify": "^5.0.5",
-    "karma-chrome-launcher": "^1.0.1",
+    "karma-chrome-launcher": "^2.0.0",
     "karma-coverage": "^1.0.0",
-    "karma-mocha": "^1.1.1",
+    "karma-jasmine": "^1.0.2",
     "karma-mocha-reporter": "^2.0.4",
     "karma-sauce-launcher": "^1.0.0",
-    "lodash": "^3.10.1",
-    "mocha": "^2.2.5",
+    "lodash": "^4.15.0",
     "nib": "^1.1.0",
     "react-addons-test-utils": "^0.14.3",
+    "style-loader": "^0.13.1",
     "stylus": "^0.54.2",
-    "watchify": "^3.7.0"
+    "stylus-loader": "^2.3.1",
+    "watchify": "^3.7.0",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.15.0"
   },
   "scripts": {
-    "test": "NODE_ENV=test ./node_modules/.bin/karma start ./tool/karma.conf.js",
-    "test-ci": "NODE_ENV=test ./node_modules/.bin/karma start ./tool/karma.ci.conf.js",
+    "test": "NODE_ENV=test ./node_modules/.bin/karma start ./tools/karma.conf.js",
+    "test-ci": "NODE_ENV=test ./node_modules/.bin/karma start ./tools/karma.ci.conf.js",
     "coveralls": "cat ./coverage/lcov/lcov.info | ./node_modules/.bin/coveralls",
-    "lint": "fecs src",
-    "build": "sh tool/build.sh",
-    "release": "sh tool/release.sh"
+    "start": "node tools/server.js",
+    "build": "gulp build",
+    "lint": "fecs src --rule",
+    "rebuild": "gulp clean build",
+    "prepublish": "npm run lint && npm run rebuild"
   },
   "repository": {
     "type": "git",
@@ -69,9 +81,34 @@
   "dependencies": {
     "melon": "^0.3.1",
     "melon-core": "^0.3.1",
-    "moment": "^2.13.0",
-    "react": "^0.14.8",
-    "react-dom": "0.14.8",
-    "react-motion": "^0.4.2"
+    "moment": "^2.13.0"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ],
+    "plugins": [
+      "transform-object-rest-spread"
+    ]
+  },
+  "babelBuild": {
+    "presets": [
+      [
+        "es2015",
+        {
+          "loose": true,
+          "modules": "umd"
+        }
+      ],
+      "react"
+    ],
+    "plugins": [
+      "transform-object-rest-spread",
+      "external-helpers",
+      "external-helpers-insert-require",
+      "transform-es3-property-literals",
+      "transform-es3-member-expression-literals"
+    ]
   }
 }
