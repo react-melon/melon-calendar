@@ -7,14 +7,7 @@ var path = require('path');
 
 var NODE_MODULES_FILES = '**/node_modules/**';
 
-var babelOpts = {
-    presets: ['es2015', 'es2015-loose', 'react', 'stage-1'],
-    plugins: [
-        'transform-es3-property-literals',
-        'transform-es3-member-expression-literals'
-    ],
-    ignore: [NODE_MODULES_FILES]
-};
+var babelOpts = require('../../package.json').babel;
 
 module.exports = {
     basePath: path.join(__dirname, '../../'),
