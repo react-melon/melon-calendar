@@ -40,9 +40,9 @@ bower install melon-calendar
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Calendar from 'melon-calendar/Calendar';
-import RangeCalendar from 'melon-calendar/RangeCalendar';
-import UnitCalendar from 'melon-calendar/UnitCalendar';
+import Calendar from 'melon-calendar';
+import RangeCalendar from 'melon-calendar/lib/RangeCalendar';
+import UnitCalendar from 'melon-calendar/lib/UnitCalendar';
 
 ReactDOM.render(<Calendar />, container);
 ```

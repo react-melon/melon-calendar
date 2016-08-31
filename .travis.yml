@@ -10,7 +10,7 @@ before_install:
 
 install:
 |
-    npm install -g npm@latest
+    npm install -g npm@latest fecs
     npm --version
     npm install --registry http://registry.npmjs.org
 script:
