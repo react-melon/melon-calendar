@@ -5,13 +5,33 @@
 
 import {Component} from 'react';
 
+
+/**
+ * melon-calendar 选择单元基类
+ *
+ * @class
+ * @extends {React.Component}
+ */
 export default class Item extends Component {
 
+    /**
+     * 构造函数
+     *
+     * @param  {Object} props   组件属性
+     * @public
+     */
     constructor(props) {
         super(props);
         this.onClick = this.onClick.bind(this);
     }
 
+    /**
+     * 判断是否需要更新，性能优化
+     *
+     * @param  {Object} nextProps  组件新的属性
+     * @return {bool}  是否需要更新
+     * @public
+     */
     shouldComponentUpdate(nextProps) {
 
         const {
@@ -24,6 +44,12 @@ export default class Item extends Component {
 
     }
 
+    /**
+     * 点击时触发
+     *
+     * @param  {Object} e  事件对象
+     * @private
+     */
     onClick(e) {
 
         e.preventDefault();

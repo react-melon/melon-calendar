@@ -10,8 +10,20 @@ import * as DateTime from '../util';
 
 const cx = create('CalendarMonth');
 
+/**
+ * melon-calendar 日期选择面板
+ *
+ * @class
+ * @extends {React.Component}
+ */
 export default class CalendarMonth extends Component {
 
+    /**
+     * 构造函数
+     *
+     * @param  {Object} props   组件属性
+     * @public
+     */
     constructor(props) {
         super(props);
         this.onClick = this.onClick.bind(this);
@@ -19,6 +31,11 @@ export default class CalendarMonth extends Component {
         this.renderDay = this.renderDay.bind(this);
     }
 
+    /**
+     * 点击某一天的按钮时触发
+     *
+     * @param  {Object} e 事件对象
+     */
     onClick(e) {
         const onChange = this.props.onChange;
         if (onChange) {
@@ -29,11 +46,16 @@ export default class CalendarMonth extends Component {
         }
     }
 
+    /**
+     * 星期头渲染
+     *
+     * @return {React.Element}
+     */
     renderWeekHeader() {
         const days = this.props.lang.days.split(',');
 
         return (
-            <div className={cx().part('weekheader').build()}>
+            <div className={cx.getPartClassName('weekheader')}>
                 {days.map(function (day, index) {
                     return <span key={index}>{day}</span>;
                 })}
@@ -41,6 +63,11 @@ export default class CalendarMonth extends Component {
         );
     }
 
+    /**
+     * 一个月
+     *
+     * @return {React.Element}
+     */
     renderDates() {
 
         const month = this.props.month;
@@ -50,6 +77,13 @@ export default class CalendarMonth extends Component {
         return (<ul>{weekArray.map(this.renderWeek)}</ul>);
     }
 
+    /**
+     * 渲染一周
+     *
+     * @param  {Array<Date>} week  一周的日期数组
+     * @param  {number}      index 索引
+     * @return {React.Element}
+     */
     renderWeek(week, index) {
 
         return (
@@ -59,6 +93,13 @@ export default class CalendarMonth extends Component {
         );
     }
 
+    /**
+     * 渲染一天
+     *
+     * @param  {Date} day    日期
+     * @param  {number}      index 索引
+     * @return {React.Element}
+     */
     renderDay(day, index) {
 
         const {
@@ -83,6 +124,12 @@ export default class CalendarMonth extends Component {
 
     }
 
+    /**
+     * 渲染
+     *
+     * @public
+     * @return {React.Element}
+     */
     render() {
 
         return (

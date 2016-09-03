@@ -15,8 +15,20 @@ import * as DateTime from '../util';
 
 const cx = create('CalendarPanel');
 
+/**
+ * melon-calendar 日期选择主面板
+ *
+ * @class
+ * @extends {React.Component}
+ */
 export default class CalendarPanel extends Component {
 
+    /**
+     * 构造函数
+     *
+     * @param  {Object} props   组件属性
+     * @public
+     */
     constructor(props) {
 
         super(props);
@@ -26,6 +38,11 @@ export default class CalendarPanel extends Component {
         this.onPagerChange = this.onPagerChange.bind(this);
         this.onDateChange = this.onDateChange.bind(this);
 
+        /**
+         * 组件状态
+         *
+         * @type {Object}
+         */
         this.state = {
             selectorType: 'main',
             month: props.date,
@@ -34,16 +51,32 @@ export default class CalendarPanel extends Component {
 
     }
 
+    /**
+     * 组件每次更新属性时判断是否需要同步状态
+     *
+     * @param  {Object} nextProps 新属性
+     * @public
+     */
     componentWillReceiveProps(nextProps) {
 
         const date = nextProps.date;
 
         if (!DateTime.isEqualDate(date, this.props.date)) {
-            this.setState({date, month: date});
+            this.setState({
+                date,
+                month: date
+            });
         }
-
     }
 
+    /**
+     * 判断是否需要更新，性能优化
+     *
+     * @param  {Object} nextProps  组件新的属性
+     * @param  {Object} nextState  组件新的状态
+     * @return {bool}  是否需要更新
+     * @public
+     */
     shouldComponentUpdate(nextProps, nextState) {
         return !DateTime.isEqualDate(nextState.date, this.state.date)
             || !DateTime.isEqualMonth(nextState.month, this.state.month)
@@ -56,6 +89,12 @@ export default class CalendarPanel extends Component {
             || (nextProps.end && !this.props.end);
     }
 
+    /**
+     * 点击 Header 切换日期、年/月选择
+     *
+     * @param  {Object} e 事件对象
+     * @protected
+     */
     onHeaderClick(e) {
 
         const selectorType = this.state.selectorType;
@@ -63,9 +102,14 @@ export default class CalendarPanel extends Component {
         this.setState({
             selectorType: selectorType === 'main' ? 'year' : 'main'
         });
-
     }
 
+    /**
+     * 年/月选择改变的事件
+     *
+     * @param  {Object} e 事件对象
+     * @protected
+     */
     onSelectorChange(e) {
 
         let {
@@ -95,13 +139,24 @@ export default class CalendarPanel extends Component {
 
     }
 
-    onPagerChange({month}) {
-
-        this.setState({month});
-
+    /**
+     * 月份翻页器改变
+     *
+     * @param  {Object} e 事件对象
+     * @protected
+     */
+    onPagerChange(e) {
+        this.setState({month: e.month});
     }
 
-    onDateChange({date}) {
+    /**
+     * 选择某一天时触发
+     *
+     * @param  {Object} e 事件对象
+     */
+    onDateChange(e) {
+
+        const date = e.date;
 
         const month = this.state.month;
         const monthDiff = DateTime.monthDiff(date, month);
@@ -115,9 +170,14 @@ export default class CalendarPanel extends Component {
         this.props.onChange({
             value: date
         });
-
     }
 
+    /**
+     * 渲染
+     *
+     * @public
+     * @return {React.Element}
+     */
     render() {
 
         const {

@@ -13,15 +13,34 @@ import * as date from './util';
 
 const cx = create('UnitCalendar');
 
+/**
+ * melon 日期区间选择器
+ *
+ * @class
+ * @extends {melon-core/InputComponent}
+ */
 export default class UnitCalendar extends InputComponent {
 
-    constructor(props) {
-        super(props);
+    /**
+     * 构造函数
+     *
+     * @param  {Object} props   组件属性
+     * @param  {Object} context 组件上下文
+     * @public
+     */
+    constructor(props, context) {
+        super(props, context);
         this.onChange = this.onChange.bind(this);
         this.parse = this.parse.bind(this);
         this.format = this.format.bind(this);
     }
 
+    /**
+     * BoxGroup 改变时触发
+     *
+     * @param  {Object} e 事件对象
+     * @private
+     */
     onChange(e) {
 
         const nextValue = e.value;
@@ -40,6 +59,13 @@ export default class UnitCalendar extends InputComponent {
 
     }
 
+    /**
+     * 时间区间的计算
+     *
+     * @param  {Array<Date>}  current 当前区间
+     * @param  {Array<Date>}  next    改变后的区间
+     * @return {Array<string>}
+     */
     calculate(current, next) {
 
         current = current.map(this.format).sort();
@@ -90,14 +116,32 @@ export default class UnitCalendar extends InputComponent {
 
     }
 
+    /**
+     * 日期字符串格式化
+     *
+     * @param  {string} time 日期字符串
+     * @return {Date}
+     */
     parse(time) {
         return date.parse(time, this.props.format);
     }
 
+    /**
+     * 日期对象格式化
+     *
+     * @param  {Date} time 日期对象
+     * @return {string}
+     */
     format(time) {
         return date.format(time, this.props.format);
     }
 
+    /**
+     * 日期区间格式转换
+     *
+     * @param  {string} value 日期区间字符串
+     * @return {Array<Date>}
+     */
     parseValue(value = '') {
         return value
             .split(',')
@@ -106,6 +150,12 @@ export default class UnitCalendar extends InputComponent {
             });
     }
 
+    /**
+     * 日期区间格式转换
+     *
+     * @param  {Array<Date>} value 日期区间数组
+     * @return {string}
+     */
     stringifyValue(value = []) {
         return value
             .map(function (term) {
@@ -114,6 +164,12 @@ export default class UnitCalendar extends InputComponent {
             .join(',');
     }
 
+    /**
+     * 渲染
+     *
+     * @public
+     * @return {React.Element}
+     */
     render() {
 
         let {begin, end, unit, format, ...rest} = this.props;
@@ -168,6 +224,17 @@ UnitCalendar.defaultProps = {
     format: 'YYYY-MM-DD'
 };
 
+UnitCalendar.childContextTypes = InputComponent.childContextTypes;
+UnitCalendar.contextTypes = InputComponent.contextTypes;
+
+
+/**
+ * 处理时间对象，只留下当前单位需要的部分
+ *
+ * @param  {Date}   time 时间
+ * @param  {string} unit 单位
+ * @return {Date}
+ */
 export function normalize(time, unit) {
     time = new Date(time);
     // 得到周一
@@ -186,6 +253,13 @@ export function normalize(time, unit) {
     return time;
 }
 
+/**
+ * 处理时间对象，返回当前单位下下一个值
+ *
+ * @param  {Date}   time 时间
+ * @param  {string} unit 单位
+ * @return {Date}
+ */
 export function getNextTime(time, unit) {
     time = normalize(time, unit);
     if (unit === 'week') {
@@ -200,6 +274,14 @@ export function getNextTime(time, unit) {
     return time;
 }
 
+/**
+ * 获取所允许的时间区间
+ *
+ * @param  {Date} begin   起始时间
+ * @param  {Date} end     结束时间
+ * @param  {string} unit  单位
+ * @return {Array<Date>}
+ */
 export function getContinuousFragments(begin, end, unit) {
 
     begin = normalize(begin, unit);

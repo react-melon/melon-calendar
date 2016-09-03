@@ -20,8 +20,21 @@ import * as DateTime from './util';
 
 const cx = create('RangeCalendar');
 
+/**
+ * melon 日期区间选择器
+ *
+ * @class
+ * @extends {melon-core/InputComponent}
+ */
 export default class RangeCalendar extends InputComponent {
 
+    /**
+     * 构造函数
+     *
+     * @param  {Object} props   组件属性
+     * @param  {Object} context 组件上下文
+     * @public
+     */
     constructor(props, context) {
 
         super(props, context);
@@ -30,6 +43,11 @@ export default class RangeCalendar extends InputComponent {
 
         const value = this.state.value;
 
+        /**
+         * 组件状态
+         *
+         * @type {Object}
+         */
         this.state = {
             ...this.state,
             open: false,
@@ -41,9 +59,16 @@ export default class RangeCalendar extends InputComponent {
         this.onLabelClick = this.onLabelClick.bind(this);
         this.onCancel = this.onCancel.bind(this);
         this.onDateChange = this.onDateChange.bind(this);
-
     }
 
+    /**
+     * 组件每次更新 (componentWillRecieveProps) 时，需要
+     * 更新组件状态，包括校验信息、同步 date 和 value
+     *
+     * @param  {Object} nextProps 组件更新的属性
+     * @return {Object}           最新的组件状态
+     * @public
+     */
     getSyncUpdates(nextProps) {
 
         const {
@@ -68,6 +93,15 @@ export default class RangeCalendar extends InputComponent {
 
     }
 
+    /**
+     * 获取过滤后的日期对象区间
+     *
+     * @param  {Array<string>} value 时间区间值
+     * @param  {string|Date}   begin 范围最新值
+     * @param  {string|Date}   end   范围最大值
+     * @return {Array<Date>}         日期对象区间
+     * @private
+     */
     getNormalizeValue(value, begin, end) {
 
         if (value.length === 0) {
@@ -90,12 +124,19 @@ export default class RangeCalendar extends InputComponent {
 
     }
 
+    /**
+     * 格式化日期区间
+     *
+     * @param {Array<Date>} date 源日期对象
+     * @return {Array<string>} 格式化后的日期字符串
+     * @private
+     */
     stringifyValue(date) {
         return date.map(date => this.formatDate(date));
     }
 
     /**
-     * 点击textbox时触发
+     * 点击 Label 时触发，打开浮层
      *
      * @private
      */
@@ -111,11 +152,10 @@ export default class RangeCalendar extends InputComponent {
         }
 
         this.setState({open: true});
-
     }
 
     /**
-     * Calendar DialogCalendar隐藏时触发
+     * 点击取消时触发
      *
      * @private
      */
@@ -125,7 +165,18 @@ export default class RangeCalendar extends InputComponent {
         });
     }
 
-    onDateChange(index, {value}) {
+    /**
+     * CalendarPanel 日期变更时触发
+     * 当属性 autoConfirm 为 true 时，自动执行 onConfirm
+     *
+     * @param {number} index   0 - 开始时间改变， 1 - 结束时间改变
+     * @param {Object} e       事件对象
+     * @param {Date}   e.value 改变后的日期值
+     * @private
+     */
+    onDateChange(index, e) {
+
+        const value = e.value;
 
         let date = [].concat(this.state.date);
 
@@ -136,6 +187,11 @@ export default class RangeCalendar extends InputComponent {
         });
     }
 
+    /**
+     * 在浮层上点击确定按钮时触发
+     *
+     * @private
+     */
     onConfirm() {
 
         const {date, value} = this.state;
@@ -166,6 +222,7 @@ export default class RangeCalendar extends InputComponent {
      *
      * @param {Date} date 日期
      * @return {string}
+     * @private
      */
     formatDate(date) {
 
@@ -173,9 +230,15 @@ export default class RangeCalendar extends InputComponent {
             date,
             this.props.dateFormat
         );
-
     }
 
+    /**
+     * 格式化日期对象
+     *
+     * @param  {string} date  日期字符串
+     * @return {Date}         转化后的日期对象
+     * @private
+     */
     parseDate(date) {
 
         if (typeof date !== 'string') {
@@ -187,6 +250,12 @@ export default class RangeCalendar extends InputComponent {
         return DateTime.parse(date, format);
     }
 
+    /**
+     * 渲染
+     *
+     * @public
+     * @return {React.Element}
+     */
     render() {
 
         const props = this.props;
@@ -279,3 +348,7 @@ RangeCalendar.propTypes = {
         PropTypes.string
     ])
 };
+
+RangeCalendar.childContextTypes = InputComponent.childContextTypes;
+
+RangeCalendar.contextTypes = InputComponent.contextTypes;

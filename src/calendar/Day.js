@@ -10,8 +10,21 @@ import Item from './Item';
 
 const cx = create('CalendarDay');
 
+
+/**
+ * melon-calendar 日期选择单元
+ *
+ * @class
+ * @extends {Item}
+ */
 export default class CalendarDay extends Item {
 
+    /**
+     * 渲染
+     *
+     * @public
+     * @return {React.Element}
+     */
     render() {
 
         const {

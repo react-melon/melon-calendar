@@ -10,13 +10,31 @@ import * as DateTime from '../util';
 
 const cx = create('CalendarPager');
 
+/**
+ * melon-calendar 日期翻页器
+ *
+ * @class
+ * @extends {React.Component}
+ */
 export default class CalendarPager extends Component {
 
+    /**
+     * 构造函数
+     *
+     * @param  {Object} props   组件属性
+     * @public
+     */
     constructor(props) {
         super(props);
         this.onClick = this.onClick.bind(this);
     }
 
+    /**
+     * 点击翻页事件
+     *
+     * @param  {Object} e   事件对象
+     * @private
+     */
     onClick(e) {
 
         const target = e.currentTarget;
@@ -36,6 +54,12 @@ export default class CalendarPager extends Component {
 
     }
 
+    /**
+     * 渲染
+     *
+     * @public
+     * @return {React.Element}
+     */
     render() {
 
         const {

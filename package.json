@@ -12,8 +12,9 @@
     "babel-core": "^6.14.0",
     "babel-loader": "^6.2.5",
     "babel-plugin-external-helpers": "^6.8.0",
-    "babel-plugin-external-helpers-insert-require": "^1.0.1",
-    "babel-plugin-istanbul": "^2.0.0",
+    "babel-plugin-external-helpers-insert-require": "^1.0.2",
+    "babel-plugin-istanbul": "^2.0.1",
+    "babel-plugin-transform-class-properties": "^6.11.5",
     "babel-plugin-transform-es2015-modules-umd": "^6.12.0",
     "babel-plugin-transform-es3-member-expression-literals": "^6.8.0",
     "babel-plugin-transform-es3-property-literals": "^6.8.0",
@@ -55,7 +56,8 @@
     "build": "gulp build",
     "lint": "fecs src --rule",
     "rebuild": "gulp clean build",
-    "prepublish": "npm run lint && npm run rebuild"
+    "prepublish": "npm run lint && npm run rebuild",
+    "docs": "esdoc -c esdoc.json"
   },
   "repository": {
     "type": "git",
@@ -86,7 +88,8 @@
       "react"
     ],
     "plugins": [
-      "transform-object-rest-spread"
+      "transform-object-rest-spread",
+      "transform-class-properties"
     ]
   },
   "babelBuild": {
@@ -103,6 +106,7 @@
     "plugins": [
       "transform-object-rest-spread",
       "external-helpers",
+      "transform-class-properties",
       "external-helpers-insert-require",
       "transform-es3-property-literals",
       "transform-es3-member-expression-literals"

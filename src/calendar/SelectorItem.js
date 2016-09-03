@@ -10,8 +10,20 @@ import * as DateTime from '../util';
 
 const cx = create('CalendarSelectorItem');
 
+/**
+ * melon-calendar 年、月选择单元
+ *
+ * @class
+ * @extends {Item}
+ */
 export default class CalendarSelectorItem extends Item {
 
+    /**
+     * 渲染
+     *
+     * @public
+     * @return {React.Element}
+     */
     render() {
 
         const props = this.props;

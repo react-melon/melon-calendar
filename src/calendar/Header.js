@@ -3,37 +3,51 @@
  * @author cxtom(cxtom2008@gmail.com)
  */
 
-import React, {PropTypes} from 'react';
+import React, {PropTypes, Component} from 'react';
 import * as DateTime from '../util';
 import {create} from 'melon-core/classname/cxBuilder';
 
 const cx = create('CalendarHeader');
 
-export default function CalendarHeader(props) {
+/**
+ * CalendarHeader
+ *
+ * @class
+ * @extends {React.Component}
+ */
+export default class CalendarHeader extends Component {
 
-    const {
-        date,
-        ...rest
-    } = props;
+    /**
+     * 渲染
+     *
+     * @public
+     * @return {React.Element}
+     */
+    render() {
 
-    const year = date.getFullYear();
+        /* eslint-disable fecs-min-vars-per-destructure */
+        const {
+            date,
+            ...rest
+        } = this.props;
 
-    const week = DateTime.getDayOfWeek(date);
-    const month = DateTime.getShortMonth(date);
-    const day = date.getDate();
+        const year = date.getFullYear();
 
-    const fullDate = month + day + '日';
+        const week = DateTime.getDayOfWeek(date);
+        const month = DateTime.getShortMonth(date);
+        const day = date.getDate();
 
-    return (
-        <div
-            {...rest}
-            className={cx(props).build()}>
-            <p className={cx().part('year').build()}>{year}</p>
-            <p className={cx().part('week').build()}>{week}</p>
-            <p className={cx().part('date').build()}>{fullDate}</p>
-        </div>
-    );
+        const fullDate = month + day + '日';
 
+        return (
+            <div {...rest} className={cx(this.props).build()}>
+                <p className={cx.getPartClassName('year')}>{year}</p>
+                <p className={cx.getPartClassName('week')}>{week}</p>
+                <p className={cx.getPartClassName('date')}>{fullDate}</p>
+            </div>
+        );
+
+    }
 }
 
 CalendarHeader.displayName = 'CalendarHeader';

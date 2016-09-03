@@ -65,11 +65,23 @@ export function getFirstDayOfMonth(d) {
     return moment(d).date(1).toDate();
 }
 
+/**
+ * 获取月份字符串
+ *
+ * @param  {Date} d 日期
+ * @return {string}
+ */
 export function getShortMonth(d) {
     const month = d.getMonth();
     return (month + 1) + '月';
 }
 
+/**
+ * 获取星期字符串
+ *
+ * @param  {Date} d 日期
+ * @return {string}
+ */
 export function getDayOfWeek(d) {
     const dow = d.getDay();
     const lang = ['日', '一', '二', '三', '四', '五', '六'];
@@ -187,16 +199,37 @@ export function isAfterDate(d1, d2) {
     return moment(d1).isAfter(d2, 'date');
 }
 
+/**
+ * 判断两个日期对象是否在同一个月
+ *
+ * @param  {Date}  d1 日期1
+ * @param  {Date}  d2 日期2
+ * @return {boolean}  d1 = d2
+ */
 export function isEqualMonth(d1, d2) {
     return moment(d1).isSame(d2, 'month')
         && moment(d1).isSame(d2, 'year');
 }
 
-
+/**
+ * 判断两个日期对象大小
+ *
+ * @param  {Date}  d1 日期1
+ * @param  {Date}  d2 日期2
+ * @return {boolean}  d1 < d2
+ */
 export function isBeforeMonth(d1, d2) {
     return moment(d1).isBefore(d2, 'month');
 }
 
+
+/**
+ * 判断两个日期对象大小
+ *
+ * @param  {Date}  d1 日期1
+ * @param  {Date}  d2 日期2
+ * @return {boolean}  d1 > d2
+ */
 export function isAfterMonth(d1, d2) {
     return moment(d1).isAfter(d2, 'month');
 }

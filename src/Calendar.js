@@ -18,8 +18,22 @@ import * as DateTime from './util';
 
 const cx = create('Calendar');
 
+
+/**
+ * melon 日期选择器
+ *
+ * @class
+ * @extends {melon-core/InputComponent}
+ */
 export default class Calendar extends InputComponent {
 
+    /**
+     * 构造函数
+     *
+     * @param  {Object} props   组件属性
+     * @param  {Object} context 组件上下文
+     * @public
+     */
     constructor(props, context) {
 
         super(props, context);
@@ -32,6 +46,11 @@ export default class Calendar extends InputComponent {
         this.onCancel = this.onCancel.bind(this);
         this.onDateChange = this.onDateChange.bind(this);
 
+        /**
+         * 组件状态
+         *
+         * @type {Object}
+         */
         this.state = {
 
             ...this.state,
@@ -46,6 +65,14 @@ export default class Calendar extends InputComponent {
 
     }
 
+    /**
+     * 组件每次更新 (componentWillRecieveProps) 时，需要
+     * 更新组件状态，包括校验信息、同步 date 和 value
+     *
+     * @param  {Object} nextProps 组件更新的属性
+     * @return {Object}           最新的组件状态
+     * @public
+     */
     getSyncUpdates(nextProps) {
 
         const {disabled, readOnly, customValidity, defaultValue} = nextProps;
@@ -53,7 +80,7 @@ export default class Calendar extends InputComponent {
         let value = nextProps.value ? nextProps.value : defaultValue;
 
         // 如果有值，那么就试着解析一下；否则设置为 null
-        let date = value ? this.parseValue(value) : null;
+        let date = value ? this.parseDate(value) : null;
 
         // 如果 date 为 null 或者是 invalid date，那么就用上默认值；
         // 否则就用解析出来的这个值
@@ -66,18 +93,6 @@ export default class Calendar extends InputComponent {
             vilidity,
             value: (disabled || readOnly || !value) ? value : this.stringifyValue(date)
         };
-
-    }
-
-    /**
-     * 格式化日期对象
-     *
-     * @param  {string} value 日期字符串
-     * @return {Date}         转化后的日期对象
-     * @private
-     */
-    parseValue(value) {
-        return this.parseDate(value);
     }
 
     /**
@@ -95,11 +110,16 @@ export default class Calendar extends InputComponent {
         }
 
         const dateFormat = this.props.dateFormat;
-
         return DateTime.format(rawValue, dateFormat);
-
     }
 
+    /**
+     * 格式化日期对象
+     *
+     * @param  {string} date  日期字符串
+     * @return {Date}         转化后的日期对象
+     * @private
+     */
     parseDate(date) {
 
         if (typeof date !== 'string') {
@@ -111,12 +131,8 @@ export default class Calendar extends InputComponent {
         return DateTime.parse(date, format);
     }
 
-    getValue() {
-        return this.stringifyValue(this.state.value);
-    }
-
     /**
-     * 点击textbox时触发
+     * 点击 Label 时触发，打开弹窗
      *
      * @private
      */
@@ -129,11 +145,10 @@ export default class Calendar extends InputComponent {
         }
 
         this.setState({open: true});
-
     }
 
     /**
-     * rawValue 在Calendar Dialog上点击确定或取消按钮触发
+     * 在浮层上点击确定按钮时触发
      *
      * @private
      */
@@ -162,19 +177,39 @@ export default class Calendar extends InputComponent {
 
     }
 
+    /**
+     * 在浮层上点击取消按钮时触发
+     *
+     * @private
+     */
     onCancel() {
         this.setState({open: false});
     }
 
-    onDateChange({value}) {
+    /**
+     * CalendarPanel 日期变更时触发
+     * 当属性 autoConfirm 为 true 时，自动执行 onConfirm
+     *
+     * @param {Object} e 事件对象
+     * @param {Date}   e.value 改变后的日期值
+     * @private
+     */
+    onDateChange(e) {
+
+        const value = e.value;
 
         this.setState(
             {date: this.parseDate(value)},
             this.props.autoConfirm ? () => this.onConfirm() : null
         );
-
     }
 
+    /**
+     * 渲染
+     *
+     * @public
+     * @return {React.Element}
+     */
     render() {
 
         const {

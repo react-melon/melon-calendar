@@ -12,13 +12,56 @@ import {range} from 'melon-core/util/array';
 
 const cx = create('CalendarSelector');
 
+/**
+ * melon-calendar 年/月选择面板
+ *
+ * @class
+ * @extends {React.Component}
+ */
 export default class CalendarSelector extends Component {
 
+    /**
+     * 构造函数
+     *
+     * @param  {Object} props   组件属性
+     * @public
+     */
     constructor(props) {
         super(props);
         this.onClick = this.onClick.bind(this);
     }
 
+    /**
+     * 组件mount时触发，当前选择的年/月需要在可见范围
+     *
+     * @public
+     */
+    componentDidMount = this.autoScroll
+
+    /**
+     * 组件更新时触发，当前选择的年/月需要在可见范围
+     *
+     * @public
+     */
+    componentDidUpdate = this.autoScroll
+
+    /**
+     * 使选择的年/月在可见范围
+     *
+     * @public
+     */
+    autoScroll() {
+        const item = this.refs.item ? ReactDOM.findDOMNode(this.refs.item) : null;
+        item && item.scrollIntoView && item.scrollIntoView();
+    }
+
+    /**
+     * 点击某月/年时触发
+     *
+     * @param  {Object} e      事件对象
+     * @param  {string} e.mode 年/月
+     * @param  {Date}   e.date 日期
+     */
     onClick(e) {
 
         const onChange = this.props.onChange;
@@ -30,23 +73,38 @@ export default class CalendarSelector extends Component {
                 date: e.date
             });
         }
-
     }
 
-    componentDidMount() {
-        const item = this.refs.item ? ReactDOM.findDOMNode(this.refs.item) : null;
+    /**
+     * 是否显示月份
+     *
+     * @return {boolean}
+     * @private
+     */
+    isMonthView() {
 
-        // FIX jsdom 上没有这个方法，所以先判断一下
-        item && item.scrollIntoView && item.scrollIntoView();
+        const {
+            minDate,
+            maxDate,
+            mode
+        } = this.props;
+
+        let onlyOneYear = false;
+
+        // 如果范围中只有一年，则跳过yearview，直接显示month view
+        if (mode === 'year' && DateTime.isDate(minDate) && DateTime.isDate(maxDate)) {
+            onlyOneYear = (DateTime.yearDiff(minDate, maxDate) === 0);
+        }
+
+        return mode === 'month' || onlyOneYear;
     }
 
-    componentDidUpdate() {
-        const item = this.refs.item ? ReactDOM.findDOMNode(this.refs.item) : null;
-
-        // FIX jsdom 上没有这个方法，所以先判断一下
-        item && item.scrollIntoView && item.scrollIntoView();
-    }
-
+    /**
+     * 渲染
+     *
+     * @public
+     * @return {React.Element}
+     */
     render() {
 
         const {
@@ -117,31 +175,6 @@ export default class CalendarSelector extends Component {
                 {children}
             </ul>
         );
-
-    }
-
-    /**
-     * 是否显示日期
-     *
-     * @return {boolean}
-     * @private
-     */
-    isMonthView() {
-
-        const {
-            minDate,
-            maxDate,
-            mode
-        } = this.props;
-
-        let onlyOneYear = false;
-
-        // 如果范围中只有一年，则跳过yearview，直接显示month view
-        if (mode === 'year' && DateTime.isDate(minDate) && DateTime.isDate(maxDate)) {
-            onlyOneYear = (DateTime.yearDiff(minDate, maxDate) === 0);
-        }
-
-        return mode === 'month' || onlyOneYear;
 
     }
 
