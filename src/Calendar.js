@@ -10,11 +10,12 @@ import {create} from 'melon-core/classname/cxBuilder';
 import Validity from 'melon-core/Validity';
 import {getNextValidity} from 'melon-core/util/syncPropsToState';
 
-import Icon  from 'melon/Icon';
+import Icon from 'melon/Icon';
 import Confirm from 'melon/Confirm';
 
 import Panel from './calendar/Panel';
 import * as DateTime from './util';
+import omit from 'lodash/omit';
 
 const cx = create('Calendar');
 
@@ -205,6 +206,27 @@ export default class Calendar extends InputComponent {
     }
 
     /**
+     * 渲染input
+     *
+     * @protected
+     * @return {ReactElement}
+     */
+    renderHiddenInput() {
+
+        const {name, value} = this.props;
+
+        return name
+            ? (
+                <input
+                    name={name}
+                    type="hidden"
+                    value={value} />
+            )
+            : null;
+
+    }
+
+    /**
      * 渲染
      *
      * @public
@@ -222,7 +244,6 @@ export default class Calendar extends InputComponent {
             disabled,
             readOnly,
             size,
-            name,
             placeholder,
             ...others
         } = props;
@@ -241,14 +262,8 @@ export default class Calendar extends InputComponent {
             .build();
 
         return (
-            <div {...others} className={className}>
-                <input
-                    name={name}
-                    ref="input"
-                    type="hidden"
-                    value={value}
-                    disabled={disabled}
-                    size={size} />
+            <div {...omit(others, ['dateFormat', 'name', 'autoConfirm'])} className={className}>
+                {this.renderHiddenInput()}
                 <label onClick={(disabled || readOnly) ? null : this.onLabelClick}>
                     {value ? value : (
                         <span className={cx().part('label-placeholder').build()}>
@@ -293,7 +308,6 @@ Calendar.LANG = {
 
 Calendar.defaultProps = {
     ...InputComponent.defaultProps,
-    defaultValue: '',
     dateFormat: 'YYYY-MM-DD',
     lang: Calendar.LANG,
     placeholder: '请选择'

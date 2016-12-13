@@ -7,6 +7,7 @@ import React, {PropTypes} from 'react';
 import {create} from 'melon-core/classname/cxBuilder';
 import * as DateTime from '../util';
 import Item from './Item';
+import omit from 'lodash/omit';
 
 const cx = create('CalendarDay');
 
@@ -40,7 +41,7 @@ export default class CalendarDay extends Item {
 
         return (
             <a
-                {...others}
+                {...omit(others, ['variants'])}
                 className={className}
                 href="#"
                 onClick={this.onClick} >

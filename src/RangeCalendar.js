@@ -17,6 +17,7 @@ import Confirm from 'melon/Confirm';
 import Calendar from './Calendar';
 import Panel from './calendar/Panel';
 import * as DateTime from './util';
+import omit from 'lodash/omit';
 
 const cx = create('RangeCalendar');
 
@@ -251,6 +252,27 @@ export default class RangeCalendar extends InputComponent {
     }
 
     /**
+     * 渲染input
+     *
+     * @protected
+     * @return {ReactElement}
+     */
+    renderHiddenInput() {
+
+        const {name, value} = this.props;
+
+        return name
+            ? (
+                <input
+                    name={name}
+                    type="hidden"
+                    value={value.join(',')} />
+            )
+            : null;
+
+    }
+
+    /**
      * 渲染
      *
      * @public
@@ -263,8 +285,8 @@ export default class RangeCalendar extends InputComponent {
         let {
             lang,
             disabled,
+            readOnly,
             size,
-            name,
             begin,
             end,
             placeholder,
@@ -276,17 +298,17 @@ export default class RangeCalendar extends InputComponent {
         begin = begin ? this.parseDate(begin) : null;
         end = end ? this.parseDate(end) : null;
 
+        const className = cx(props)
+            .addStates({focus: open})
+            .addStates(this.getStyleStates())
+            .build();
+
         return (
             <div
-                {...others}
-                className={cx(props).addStates({focus: open}).build()}>
-                <input
-                    name={name}
-                    ref="input"
-                    type="hidden"
-                    value={value.join(',')}
-                    disabled={disabled} />
-                <label onClick={this.onLabelClick}>
+                {...omit(others, ['dateFormat', 'name', 'autoConfirm'])}
+                className={className}>
+                {this.renderHiddenInput()}
+                <label onClick={(disabled || readOnly) ? null : this.onLabelClick}>
                     {value.length === 0
                         ? (
                             <span className={cx().part('label-placeholder').build()}>

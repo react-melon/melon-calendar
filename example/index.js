@@ -48,7 +48,7 @@ class View extends React.Component {
                         <Title level={5}>日期区间</Title>
                         <RangeCalendar
                             begin="2014-10-21"
-                            end="2016-10-19"
+                            end="2018-10-19"
                             size="xxs" />
                     </div>
                 </div>
@@ -83,6 +83,17 @@ class View extends React.Component {
                     </div>
                     <div className="melon-column melon-column-4">
                         {this.state.value}
+                    </div>
+                </div>
+                <div className="melon-row">
+                    <div className="melon-column melon-column-11">
+                        <Title level={5}>各种size</Title>
+                        <Calendar size="xxs"></Calendar>
+                        <Calendar size="xs"></Calendar>
+                        <Calendar size="s"></Calendar>
+                        <Calendar size="m"></Calendar>
+                        <Calendar size="l"></Calendar>
+                        <Calendar size="xl"></Calendar>
                     </div>
                 </div>
                 <div className="melon-row">

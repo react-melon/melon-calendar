@@ -10,6 +10,7 @@ import InputComponent from 'melon-core/InputComponent';
 
 import BoxGroup from 'melon/BoxGroup';
 import * as date from './util';
+import omit from 'lodash/omit';
 
 const cx = create('UnitCalendar');
 
@@ -91,7 +92,10 @@ export default class UnitCalendar extends InputComponent {
             let firstCurrent = new Date(current[0]);
 
             if (firtNext < firstCurrent) {
-                return getContinuousFragments(firtNext, firstCurrent, unit).map(this.format).concat(current);
+                return [
+                    ...getContinuousFragments(firtNext, firstCurrent, unit).map(this.format),
+                    ...current
+                ];
             }
 
             let lastNext = new Date(next[nLength - 1]);
@@ -193,7 +197,7 @@ export default class UnitCalendar extends InputComponent {
         return (
             <div className={cx(this.props).build()}>
                 <BoxGroup
-                    {...rest}
+                    {...omit(rest, ['defaultValue'])}
                     boxModel="checkbox"
                     onChange={this.onChange}
                     value={value}>
