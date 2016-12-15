@@ -67,6 +67,14 @@ class View extends React.Component {
                         2015-7-10 to 2015-9-28
                     </div>
                 </div>
+
+                <div className="melon-row">
+                    <div className="melon-column melon-column-4">
+                        <Title level={5}>fluid</Title>
+                        <Calendar variants={['fluid']}></Calendar>
+                    </div>
+                </div>
+
                 <div className="melon-row">
                     <div className="melon-column melon-column-4">
                         <Title level={5}>自动确定</Title>

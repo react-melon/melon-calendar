@@ -33,7 +33,9 @@ for level, value in $-melon-calendar-sizes
     font-size: $-melon-medium-font-size
     display: inline-block
     position: relative
-    margin-right: 1.2em
+
+    border-bottom: 1px solid $-melon-colors.grey300
+    transition: border-color 1s
 
     &-label-placeholder
         color: $-melon-colors.grey500
@@ -42,17 +44,21 @@ for level, value in $-melon-calendar-sizes
         display inline-block
         font-size: 1em
         width: 100%
-        line-height: 1.5em
-        border-bottom: 1px solid $-melon-colors.grey300
-        transition: border-color 1s
         cursor: pointer
+        text-align: left
+        line-height: 1.5em
+        padding: 0.5em 0
+        padding-right: 1.5em
+        box-sizing: border-box
 
         > .{$-melon-class-prefix}-icon
+            position: absolute
+            right: 0
+            top: 0.5em
             display: inline-block
             font-size: 1.2em
             width: @font-size
-            vertical-align middle
-            margin-right: -@width
+            vertical-align: middle
 
     &.state-focus > label
         border-bottom-color: $-melon-colors.blue500

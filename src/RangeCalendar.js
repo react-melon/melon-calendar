@@ -305,7 +305,7 @@ export default class RangeCalendar extends InputComponent {
 
         return (
             <div
-                {...omit(others, ['dateFormat', 'name', 'autoConfirm'])}
+                {...omit(others, ['dateFormat', 'name', 'autoConfirm', 'variants'])}
                 className={className}>
                 {this.renderHiddenInput()}
                 <label onClick={(disabled || readOnly) ? null : this.onLabelClick}>
