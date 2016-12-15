@@ -69,9 +69,12 @@ class View extends React.Component {
                 </div>
 
                 <div className="melon-row">
-                    <div className="melon-column melon-column-4">
+                    <div className="melon-column melon-column-6">
                         <Title level={5}>fluid</Title>
                         <Calendar variants={['fluid']}></Calendar>
+                    </div>
+                    <div className="melon-column melon-column-6">
+                        <Calendar variants={['fluid']} size="xxs"></Calendar>
                     </div>
                 </div>
 

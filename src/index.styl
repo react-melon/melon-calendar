@@ -54,11 +54,11 @@ for level, value in $-melon-calendar-sizes
         > .{$-melon-class-prefix}-icon
             position: absolute
             right: 0
-            top: 0.5em
+            top: 50%
+            transform: translate(0, -50%)
             display: inline-block
             font-size: 1.2em
             width: @font-size
-            vertical-align: middle
 
     &.state-focus > label
         border-bottom-color: $-melon-colors.blue500

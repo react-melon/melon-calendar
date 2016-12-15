@@ -262,7 +262,7 @@ export default class Calendar extends InputComponent {
             .build();
 
         return (
-            <div {...omit(others, ['dateFormat', 'name', 'autoConfirm', 'variants'])} className={className}>
+            <div {...omit(others, ['dateFormat', 'name', 'autoConfirm', 'variants', 'states'])} className={className}>
                 {this.renderHiddenInput()}
                 <label onClick={(disabled || readOnly) ? null : this.onLabelClick}>
                     {value ? value : (
