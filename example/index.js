@@ -58,12 +58,12 @@ class View extends React.Component {
                         <Title level={5}>普通日历</Title>
                         <Calendar></Calendar>
                     </div>
-                    <div className="melon-column melon-column-4">
+                    <div className="melon-column melon-column-6">
                         <Title level={5}>限定区间</Title>
                         <Calendar
                             value="2015-09-01"
                             begin={new Date(2015, 7, 10)}
-                            end={new Date(2015, 9, 28)}></Calendar>
+                            end={new Date(2015, 9, 28)} />
                         2015-7-10 to 2015-9-28
                     </div>
                 </div>

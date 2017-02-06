@@ -50,6 +50,8 @@ export default class UnitCalendar extends InputComponent {
 
         super.onChange({
 
+            type: 'change',
+
             target: this,
 
             // 如果是连续的，这里需要算一下，不是连续的就以新值为主

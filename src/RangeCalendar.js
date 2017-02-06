@@ -6,10 +6,8 @@
 
 import React, {PropTypes} from 'react';
 
-import Validity from 'melon-core/Validity';
 import {create} from 'melon-core/classname/cxBuilder';
 import InputComponent from 'melon-core/InputComponent';
-import {getNextValidity} from 'melon-core/util/syncPropsToState';
 
 import Icon from 'melon/Icon';
 import Confirm from 'melon/Confirm';
@@ -60,38 +58,6 @@ export default class RangeCalendar extends InputComponent {
         this.onLabelClick = this.onLabelClick.bind(this);
         this.onCancel = this.onCancel.bind(this);
         this.onDateChange = this.onDateChange.bind(this);
-    }
-
-    /**
-     * 组件每次更新 (componentWillRecieveProps) 时，需要
-     * 更新组件状态，包括校验信息、同步 date 和 value
-     *
-     * @param  {Object} nextProps 组件更新的属性
-     * @return {Object}           最新的组件状态
-     * @public
-     */
-    getSyncUpdates(nextProps) {
-
-        const {
-            disabled,
-            customValidity,
-            readOnly,
-            value = nextProps.defaultValue,
-            begin,
-            end
-        } = nextProps;
-
-        // 如果有值，那么就试着解析一下；否则设置为 null
-        let date = value ? this.getNormalizeValue(value, begin, end) : null;
-
-        const vilidity = getNextValidity(this, {value, disabled, customValidity});
-
-        return {
-            date,
-            vilidity,
-            value: (disabled || readOnly || !value.length) ? value : this.stringifyValue(date)
-        };
-
     }
 
     /**
@@ -293,7 +259,7 @@ export default class RangeCalendar extends InputComponent {
             ...others
         } = props;
 
-        const {open, date, value, validity} = this.state;
+        const {open, date, value} = this.state;
 
         begin = begin ? this.parseDate(begin) : null;
         end = end ? this.parseDate(end) : null;
@@ -318,10 +284,9 @@ export default class RangeCalendar extends InputComponent {
                     }
                     <Icon icon='expand-more' />
                 </label>
-                <Validity validity={validity} />
                 <Confirm
                     open={open}
-                    variants={['calendar']}
+                    variants={['calendar', 'range']}
                     onConfirm={this.onConfirm}
                     onCancel={this.onCancel}
                     size={size}
@@ -359,6 +324,7 @@ RangeCalendar.defaultProps = {
 RangeCalendar.propTypes = {
     ...Calendar.propTypes,
     defaultValue: PropTypes.arrayOf(PropTypes.string),
+    value: PropTypes.arrayOf(PropTypes.string),
     autoOk: PropTypes.bool,
     dateFormat: PropTypes.string,
     begin: PropTypes.oneOfType([

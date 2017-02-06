@@ -7,8 +7,6 @@ import React, {PropTypes} from 'react';
 
 import InputComponent from 'melon-core/InputComponent';
 import {create} from 'melon-core/classname/cxBuilder';
-import Validity from 'melon-core/Validity';
-import {getNextValidity} from 'melon-core/util/syncPropsToState';
 
 import Icon from 'melon/Icon';
 import Confirm from 'melon/Confirm';
@@ -39,13 +37,15 @@ export default class Calendar extends InputComponent {
 
         super(props, context);
 
-        const value = this.state.value;
-
         this.onLabelClick = this.onLabelClick.bind(this);
         this.onConfirm = this.onConfirm.bind(this);
         this.onLabelClick = this.onLabelClick.bind(this);
         this.onCancel = this.onCancel.bind(this);
         this.onDateChange = this.onDateChange.bind(this);
+
+        const {defaultValue, value} = props;
+
+        const date = value === void 0 ? defaultValue : value;
 
         /**
          * 组件状态
@@ -56,8 +56,10 @@ export default class Calendar extends InputComponent {
 
             ...this.state,
 
+            value: this.stringifyValue(date),
+
             // 缓存用户在 confirm 前的选中值
-            date: value ? this.parseDate(value) : undefined,
+            date: date ? this.parseDate(date) : void 0,
 
             // 是否打开选择窗
             open: false
@@ -67,33 +69,20 @@ export default class Calendar extends InputComponent {
     }
 
     /**
-     * 组件每次更新 (componentWillRecieveProps) 时，需要
-     * 更新组件状态，包括校验信息、同步 date 和 value
+     * react生命周期，组件将更新时触发
      *
-     * @param  {Object} nextProps 组件更新的属性
-     * @return {Object}           最新的组件状态
-     * @public
+     * @param {Object} _ 属性
+     * @param {Object} nextState 状态
      */
-    getSyncUpdates(nextProps) {
-
-        const {disabled, readOnly, customValidity, defaultValue} = nextProps;
-
-        let value = nextProps.value ? nextProps.value : defaultValue;
-
-        // 如果有值，那么就试着解析一下；否则设置为 null
-        let date = value ? this.parseDate(value) : null;
-
-        // 如果 date 为 null 或者是 invalid date，那么就用上默认值；
-        // 否则就用解析出来的这个值
-        date = !date || isNaN(date.getTime()) ? new Date() : date;
-
-        const vilidity = getNextValidity(this, {value, disabled, customValidity});
-
-        return {
-            date,
-            vilidity,
-            value: (disabled || readOnly || !value) ? value : this.stringifyValue(date)
-        };
+    componentWillUpdate(_, nextState) {
+        const date = this.parseDate(nextState.value);
+        if (this.state.value !== nextState.value && (
+            date === void 0 || nextState.date === void 0 || !DateTime.isEqualDate(date, nextState.date)
+        )) {
+            this.setState({
+                date: this.parseDate(nextState.value)
+            });
+        }
     }
 
     /**
@@ -138,13 +127,6 @@ export default class Calendar extends InputComponent {
      * @private
      */
     onLabelClick() {
-
-        const {disabled, readOnly} = this.props;
-
-        if (disabled || readOnly) {
-            return;
-        }
-
         this.setState({open: true});
     }
 
@@ -166,14 +148,14 @@ export default class Calendar extends InputComponent {
 
         const newDate = date ? date : new Date();
 
-        this.setState({open: false, date: newDate}, () => {
+        this.setState({open: false, date: newDate});
 
-            super.onChange({
-                type: 'change',
-                target: this,
-                value: this.stringifyValue(newDate)
-            });
-
+        super.onChange({
+            type: 'change',
+            target: this,
+            value: this.stringifyValue(newDate)
+        }, () => {
+            this.setState({open: false, date: newDate});
         });
 
     }
@@ -197,12 +179,26 @@ export default class Calendar extends InputComponent {
      */
     onDateChange(e) {
 
-        const value = e.value;
+        const value = this.parseDate(e.value);
+        const newState = {
+            date: this.parseDate(value)
+        };
 
-        this.setState(
-            {date: this.parseDate(value)},
-            this.props.autoConfirm ? () => this.onConfirm() : null
-        );
+        if (this.props.autoConfirm) {
+            super.onChange({
+                type: 'change',
+                target: this,
+                value: this.stringifyValue(value)
+            }, () => {
+                this.setState({
+                    ...newState,
+                    open: false
+                });
+            });
+        }
+        else {
+            this.setState(newState);
+        }
     }
 
     /**
@@ -248,14 +244,13 @@ export default class Calendar extends InputComponent {
             ...others
         } = props;
 
-        const {value, validity} = state;
+        const {value, open, date} = state;
 
         let {begin, end} = props;
 
         begin = begin ? this.parseDate(begin) : null;
         end = end ? this.parseDate(end) : null;
 
-        const {open, date} = state;
         const className = cx(props)
             .addStates({focus: open})
             .addStates(this.getStyleStates())
@@ -272,7 +267,6 @@ export default class Calendar extends InputComponent {
                     )}
                     <Icon icon='expand-more' />
                 </label>
-                <Validity validity={validity} />
                 <Confirm
                     open={open}
                     variants={['calendar']}

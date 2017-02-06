@@ -3,51 +3,53 @@
  * @author cxtom(cxtom2010@gmail.com)
  */
 
-import React, {Component} from 'react';
-import TestUtils from 'react-addons-test-utils';
+import React from 'react';
+import {mount} from 'enzyme';
+import moment from 'moment';
 
 import then from '../then';
 
 import Calendar from '../../src/Calendar';
-import Confirm from 'melon/Confirm';
-import CalendarPanel from '../../src/calendar/Panel';
 
 /* eslint-disable max-nested-callbacks */
 
 describe('Calendar', () => {
 
     let component;
-    let calendar;
 
     describe('basic', () => {
 
         beforeEach(() => {
-
-            component = TestUtils.renderIntoDocument(
+            component = mount(
                 <Calendar defaultValue="2016-01-13" />
             );
-
-            calendar = TestUtils.findRenderedComponentWithType(component, Calendar);
-
         });
 
         afterEach(() => {
-            component = calendar = null;
+            component.unmount();
+            component = null;
         });
 
-        it('work', done => {
+        it('show & hide', done => {
 
-            expect(TestUtils.isCompositeComponent(component)).toBe(true);
+            const date = component.state('date');
 
-            expect(calendar.state.date.getDate()).toBe(13);
-            expect(calendar.state.date.getMonth()).toBe(0);
-            expect(calendar.state.date.getFullYear()).toBe(2016);
-            expect(calendar.state.open).toBe(false);
+            expect(date.getDate()).toBe(13);
+            expect(date.getMonth()).toBe(0);
+            expect(date.getFullYear()).toBe(2016);
+            expect(component.state('open')).toBe(false);
 
-            TestUtils.Simulate.click(TestUtils.findRenderedDOMComponentWithTag(component, 'label'));
+            component.find('label').at(0).simulate('click');
 
             then(() => {
-                expect(calendar.state.open).toBe(true);
+                expect(component.state('open')).toBe(true);
+
+                const actions = document.querySelectorAll('.ui-button');
+                expect(actions.length).toBe(2);
+
+                actions[0].click();
+            }).then(() => {
+                expect(component.state('open')).toBe(false);
                 done();
             });
 
@@ -55,60 +57,24 @@ describe('Calendar', () => {
 
         it('onDateChange', done => {
 
-            const date = new Date(2014, 5, 12);
-
-            const panel = TestUtils.findRenderedComponentWithType(calendar, CalendarPanel);
-
-            expect(TestUtils.isCompositeComponent(panel)).toBe(true);
-
-            panel.onDateChange({date});
+            component.find('label').at(0).simulate('click');
 
             then(() => {
-                expect(calendar.state.date.getDate()).toBe(12);
-                expect(calendar.state.date.getMonth()).toBe(5);
-                expect(calendar.state.date.getFullYear()).toBe(2014);
-                done();
-            });
+                const days = document.querySelectorAll('.ui-calendar-day');
+                expect(days.length).toBe(42);
 
-        });
+                days[13].click();
 
-        it('onConfirm', done => {
+                const actions = document.querySelectorAll('.ui-button');
+                expect(actions.length).toBe(2);
 
-            const date = new Date(2014, 5, 12);
-
-            const panel = TestUtils.findRenderedComponentWithType(calendar, CalendarPanel);
-            const confirm = TestUtils.findRenderedComponentWithType(calendar, Confirm);
-
-            TestUtils.Simulate.click(TestUtils.findRenderedDOMComponentWithTag(calendar, 'label'));
-
-            panel.onDateChange({date});
-
-            then(() => {
-                confirm.props.onConfirm();
-            })
-            .then(() => {
-                expect(calendar.getValue()).toBe('2014-06-12');
-                expect(calendar.state.open).toBe(false);
-                done();
-            });
-
-        });
-
-        it('onCancel', done => {
-
-            const date = new Date(2014, 5, 12);
-
-            const panel = TestUtils.findRenderedComponentWithType(calendar, CalendarPanel);
-            const confirm = TestUtils.findRenderedComponentWithType(calendar, Confirm);
-            TestUtils.Simulate.click(TestUtils.findRenderedDOMComponentWithTag(component, 'label'));
-            panel.onDateChange({date});
-
-            then(() => {
-                confirm.props.onCancel();
-            })
-            .then(() => {
-                expect(calendar.getValue()).toBe('2016-01-13');
-                expect(calendar.state.open).toBe(false);
+                actions[1].click();
+            }).then(() => {
+                const date = component.state('date');
+                expect(date.getDate()).toBe(9);
+                expect(date.getMonth()).toBe(0);
+                expect(date.getFullYear()).toBe(2016);
+                expect(component.state('open')).toBe(false);
                 done();
             });
 
@@ -116,35 +82,50 @@ describe('Calendar', () => {
 
     });
 
+    it('defaultValue', done => {
+        component = mount(
+            <Calendar />
+        );
+
+        component.find('label').at(0).simulate('click');
+
+        then(() => {
+            const actions = document.querySelectorAll('.ui-button');
+            expect(actions.length).toBe(2);
+            actions[1].click();
+        }).then(() => {
+            expect(component.state('value')).toBe(moment(new Date()).format('YYYY-MM-DD'));
+            component.unmount();
+            component = null;
+            done();
+        });
+    });
+
     it('autoConfirm', done => {
 
-        const spy = jasmine.createSpy();
-
-        component = TestUtils.renderIntoDocument(
+        component = mount(
             <Calendar
-                value="2016-01-13"
-                onChange={spy}
+                defaultValue="2016-01-13"
                 autoConfirm />
         );
 
-        calendar = TestUtils.findRenderedComponentWithType(component, Calendar);
-
-        const date = new Date(2014, 5, 12);
-
-        const panel = TestUtils.findRenderedComponentWithType(component, CalendarPanel);
-
-        panel.onDateChange({date});
+        component.find('label').at(0).simulate('click');
 
         then(() => {
-            calendar.setState({value: '2014-06-12'});
+            const days = document.querySelectorAll('.ui-calendar-day');
+            expect(days.length).toBe(42);
+
+            days[14].click();
         })
         .then(() => {
-            expect(spy).toHaveBeenCalled();
-            expect(calendar.getValue()).toBe('2014-06-12');
-            panel.onDateChange({date});
-        })
-        .then(() => {
-            expect(spy.calls.count()).toBe(1);
+            expect(component.state('open')).toBe(false);
+            const date = component.state('date');
+            expect(date.getDate()).toBe(10);
+            expect(date.getMonth()).toBe(0);
+            expect(date.getFullYear()).toBe(2016);
+
+            component.unmount();
+            component = null;
             done();
         });
 
@@ -152,40 +133,29 @@ describe('Calendar', () => {
 
     it('controlled', done => {
 
-        const changeSpy = jasmine.createSpy();
+        const changeSpy = jasmine.createSpy('change');
 
-        class TestComponent extends Component {
-
-            constructor(props) {
-                super(props);
-                this.state = {value: '2014-06-12'};
-            }
-
-            render() {
-                return (
-                    <Calendar
-                        value={this.state.value}
-                        autoConfirm={true}
-                        onChange={e => {
-                            this.setState({value: e.value});
-                            changeSpy();
-                        }} />
-                );
-            }
-        }
-
-        component = TestUtils.renderIntoDocument(
-            <TestComponent />
+        component = mount(
+            <Calendar
+                value="2016-01-20"
+                autoConfirm={true}
+                onChange={changeSpy} />
         );
 
-        calendar = TestUtils.findRenderedComponentWithType(component, Calendar);
-
-        expect(calendar.getValue()).toEqual('2014-06-12');
-
-        calendar.onDateChange({value: '2015-05-10'});
+        component.find('label').at(0).simulate('click');
 
         then(() => {
-            expect(calendar.getValue()).toEqual('2015-05-10');
+            const days = document.querySelectorAll('.ui-calendar-day');
+            expect(days.length).toBe(42);
+
+            days[14].click();
+        })
+        .then(() => {
+            expect(component.state('open')).toBe(false);
+            expect(changeSpy).toHaveBeenCalled();
+            expect(changeSpy.calls.argsFor(0)[0].value).toBe('2016-01-10');
+            component.unmount();
+            component = null;
             done();
         });
 

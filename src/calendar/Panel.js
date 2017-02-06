@@ -38,6 +38,10 @@ export default class CalendarPanel extends Component {
         this.onPagerChange = this.onPagerChange.bind(this);
         this.onDateChange = this.onDateChange.bind(this);
 
+        // 除年月日以外的时间数据清0
+        const d = props.date;
+        const date = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+
         /**
          * 组件状态
          *
@@ -45,8 +49,8 @@ export default class CalendarPanel extends Component {
          */
         this.state = {
             selectorType: 'main',
-            month: props.date,
-            date: props.date
+            month: date,
+            date
         };
 
     }
@@ -230,7 +234,7 @@ CalendarPanel.defaultProps = {
 };
 
 CalendarPanel.propTypes = {
-    date: PropTypes.instanceOf(Date),
+    date: PropTypes.instanceOf(Date).isRequired,
     begin: PropTypes.instanceOf(Date),
     end: PropTypes.instanceOf(Date)
 };

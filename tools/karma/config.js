@@ -4,9 +4,6 @@
  */
 
 const path = require('path');
-const babelOptions = require('../../package.json').babel;
-
-babelOptions.plugins.push('istanbul');
 
 module.exports = {
     basePath: path.join(__dirname, '../../'),
@@ -27,10 +24,18 @@ module.exports = {
                 {
                     test: /\.js$/,
                     loader: 'babel',
-                    exclude: /node_modules/,
-                    query: babelOptions
+                    exclude: /node_modules/
+                },
+                {
+                    test: /\.json$/,
+                    loader: 'json'
                 }
             ]
+        },
+        externals: {
+            'react/addons': true,
+            'react/lib/ExecutionEnvironment': true,
+            'react/lib/ReactContext': true
         }
     },
 

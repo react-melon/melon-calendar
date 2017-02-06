@@ -1,6 +1,6 @@
 {
   "name": "melon-calendar",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "homepage": "http://react-melon.github.io/melon-calendar",
   "authors": [
     "ludafa@outlook.com",
@@ -33,6 +33,6 @@
     "react-motion": "https://unpkg.com/react-motion/bower.zip",
     "melon-core": "^0.4.0",
     "moment": "^2.13.0",
-    "melon": "^0.4.0"
+    "melon": "^0.5.0"
   }
 }
