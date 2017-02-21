@@ -6,25 +6,6 @@
 @require 'melon/css/Icon.styl'
 @require 'melon/css/BoxGroup.styl'
 
-$-melon-calendar-sizes = {
-    'xxs': 30px,
-    'xs': 35px
-}
-
-for level, value in $-melon-calendar-sizes
-    $-size = {
-        width: value,
-        height: value,
-        line-height: value
-    }
-    .variant-calendar.variant-size-{level},
-        .{$-melon-class-prefix}-calendar
-            &-day
-                {$-size}
-            &-month
-                &-weekheader span
-                    {$-size}
-
 
 .{$-melon-class-prefix}-range-calendar,
 .{$-melon-class-prefix}-calendar
@@ -265,6 +246,18 @@ for level, value in $-melon-calendar-sizes
                     background-color: transparent
                     color: inherit
                     opacity: 1
+
+.{$-melon-class-prefix}-dialog.variant-calendar.variant-size-xxs .{$-melon-class-prefix}-calendar
+    &-day,
+    &-month-weekheader span
+        size(30px)
+        line-height: 30px
+
+.{$-melon-class-prefix}-dialog.variant-calendar.variant-size-xs .{$-melon-class-prefix}-calendar
+    &-day,
+    &-month-weekheader span
+        size(35px)
+        line-height: 35px
 
 
 .{$-melon-class-prefix}-dialog.variant-range.variant-range
