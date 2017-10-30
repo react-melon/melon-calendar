@@ -9,18 +9,17 @@ module.exports = {
     basePath: path.join(__dirname, '../../'),
     frameworks: ['jasmine'],
     files: [
-        './node_modules/jasmine-expect-jsx/dist/jasmine-expect-jsx.js', // expect-jsx
-        './test/**/*.spec.js'
+        'test/index.js'
     ],
     browsers: ['Chrome'],
     preprocessors: {
-        './test/**/*.spec.js': ['webpack'],
-        './src/*.js': ['coverage']
+        'src/**/*.js': ['coverage', 'sourcemap'],
+        'test/**/*.js': ['webpack', 'sourcemap']
     },
 
     webpack: {
         module: {
-            preLoaders: [
+            loaders: [
                 {
                     test: /\.js$/,
                     loader: 'babel',
@@ -32,11 +31,7 @@ module.exports = {
                 }
             ]
         },
-        externals: {
-            'react/addons': true,
-            'react/lib/ExecutionEnvironment': true,
-            'react/lib/ReactContext': true
-        }
+        devtool: 'inline-source-map'
     },
 
     webpackMiddleware: {
@@ -54,5 +49,5 @@ module.exports = {
         ]
     },
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: true
+    singleRun: false
 };

@@ -4,8 +4,8 @@
  */
 
 import React from 'react';
-import TestUtils from 'react-addons-test-utils';
-
+import TestUtils from 'react-dom/test-utils';
+import {shallow} from 'enzyme';
 import Icon from 'melon/Icon';
 import CalendarPager from '../../../src/calendar/Pager';
 import then from '../../then';
@@ -13,88 +13,41 @@ import then from '../../then';
 describe('CalendarPager', function () {
 
     it('work', function () {
-        const renderer = TestUtils.createRenderer();
         const date = new Date(2016, 11, 1);
-        renderer.render(
+        const wrapper = shallow(
             <CalendarPager month={date} />
         );
-        const actualElement = renderer.getRenderOutput();
-        const expectedElement = (
-            <div className={'ui-calendar-pager'}>
-                <Icon
-                    className="ui-calendar-pager-prev"
-                    icon="navigate-before"
-                    data-role="pager"
-                    data-action="prev"
-                    onClick={() => {}} />
-                <Icon
-                    className="ui-calendar-pager-next"
-                    icon="navigate-next"
-                    data-role="pager"
-                    data-action="next"
-                    onClick={() => {}} />
-                2016 年 12 月
-            </div>
-        );
-        expect(actualElement).toEqualJSX(expectedElement);
+        expect(wrapper.hasClass('ui-calendar-pager'));
+        expect(wrapper.children().length).toBe(3);
+        expect(wrapper.children().at(0).is(Icon)).toBe(true);
+        expect(wrapper.children().at(0).hasClass('ui-calendar-pager-prev')).toBe(true);
+        expect(wrapper.children().at(0).prop('icon')).toBe('navigate-before');
+
+        expect(wrapper.children().at(1).is(Icon)).toBe(true);
+        expect(wrapper.children().at(1).hasClass('ui-calendar-pager-next')).toBe(true);
+        expect(wrapper.children().at(1).prop('icon')).toBe('navigate-next');
+
+        expect(wrapper.children().at(2).text()).toBe('2016 年 12 月');
+
     });
 
 
     it('minDate', function () {
-        const renderer = TestUtils.createRenderer();
         const date = new Date(2015, 10, 1);
-        renderer.render(
+        const wrapper = shallow(
             <CalendarPager month={date} minDate={new Date(2015, 11, 1)} />
         );
-        const actualElement = renderer.getRenderOutput();
-        const expectedElement = (
-            <div className={'ui-calendar-pager'}>
-                <Icon
-                    icon="navigate-before"
-                    data-role="pager"
-                    className="ui-calendar-pager-prev state-disabled"
-                    data-action="prev"
-                    onClick={null} />
-                <Icon
-                    icon="navigate-next"
-                    data-role="pager"
-                    data-action="next"
-                    className="ui-calendar-pager-next"
-                    onClick={() => {}} />
-                2015 年 11 月
-            </div>
-        );
-        expect(actualElement).toEqualJSX(expectedElement);
+        expect(wrapper.children().at(2).text()).toBe('2015 年 11 月');
     });
 
 
     it('maxDate', function () {
-        const renderer = TestUtils.createRenderer();
         const date = new Date(2015, 10, 1);
-        renderer.render(
+        const wrapper = shallow(
             <CalendarPager month={date} maxDate={new Date(2015, 9, 1)} />
         );
-        const actualElement = renderer.getRenderOutput();
-        const expectedElement = (
-            <div className={'ui-calendar-pager'}>
-                <Icon
-                    icon="navigate-before"
-                    className="ui-calendar-pager-prev"
-                    data-role="pager"
-                    data-action="prev"
-                    onClick={() => {}} />
-                <Icon
-                    icon="navigate-next"
-                    data-role="pager"
-                    className="ui-calendar-pager-next state-disabled"
-                    data-action="next"
-                    onClick={null} />
-                2015 年 11 月
-            </div>
-        );
-        expect(actualElement).toEqualJSX(expectedElement);
+        expect(wrapper.children().at(2).text()).toBe('2015 年 11 月');
     });
-
 
     it('click', done => {
 

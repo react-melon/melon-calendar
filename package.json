@@ -3,36 +3,24 @@
   "version": "1.1.2",
   "description": "React Calendar Component",
   "main": "lib/Calendar.js",
-  "directories": {
-    "doc": "docs",
-    "test": "test",
-    "example": "example"
-  },
   "devDependencies": {
     "babel-core": "^6.14.0",
     "babel-loader": "^6.2.5",
-    "babel-plugin-external-helpers": "^6.8.0",
-    "babel-plugin-external-helpers-insert-require": "^1.0.2",
     "babel-plugin-istanbul": "^2.0.1",
-    "babel-plugin-transform-class-properties": "^6.11.5",
-    "babel-plugin-transform-es2015-modules-umd": "^6.12.0",
-    "babel-plugin-transform-es3-member-expression-literals": "^6.8.0",
-    "babel-plugin-transform-es3-property-literals": "^6.8.0",
-    "babel-plugin-transform-object-rest-spread": "^6.8.0",
     "babel-preset-es2015": "^6.14.0",
     "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-1": "^6.24.1",
     "coveralls": "^2.11.9",
     "cross-env": "^3.1.4",
     "css-loader": "^0.24.0",
-    "enzyme": "^2.7.1",
+    "enzyme": "^3.1.0",
+    "enzyme-adapter-react-16": "^1.0.2",
     "file-loader": "^0.9.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
-    "gulp-babel-external-helpers": "^2.0.2",
     "gulp-clean": "^0.3.2",
     "gulp-sourcemaps": "^1.6.0",
-    "jasmine-core": "^2.4.1",
-    "jasmine-expect-jsx": "^1.1.2",
+    "jasmine-core": "^2.8.0",
     "json-loader": "^0.5.4",
     "karma": "^1.1.0",
     "karma-chrome-launcher": "^2.0.0",
@@ -40,12 +28,12 @@
     "karma-jasmine": "^1.0.2",
     "karma-mocha-reporter": "^2.0.4",
     "karma-sauce-launcher": "^1.0.0",
+    "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^1.8.0",
     "lodash": "^4.15.0",
     "nib": "^1.1.0",
-    "react": "^15.4.1",
-    "react-addons-test-utils": "^15.4.1",
-    "react-dom": "^15.4.1",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
     "style-loader": "^0.13.1",
     "stylus": "^0.54.2",
     "stylus-loader": "^2.3.1",
@@ -58,10 +46,8 @@
     "test-ci": "cross-env NODE_ENV=test ./node_modules/.bin/karma start ./tools/karma.ci.conf.js",
     "coveralls": "cat ./coverage/lcov/lcov.info | ./node_modules/.bin/coveralls",
     "start": "cross-env NODE_ENV=dev node tools/server.js",
-    "build": "cross-env NODE_ENV=production gulp build",
-    "lint": "fecs src --rule",
+    "build": "rimraf lib && cross-env NODE_ENV=production gulp build",
     "rebuild": "cross-env NODE_ENV=production gulp clean build",
-    "prepublish": "npm run lint && npm run rebuild",
     "docs": "esdoc -c esdoc.json"
   },
   "repository": {
@@ -69,8 +55,8 @@
     "url": "git+https://github.com/react-melon/melon-calendar.git"
   },
   "peerDependencies": {
-    "react-dom": "^0.14.8||^15.4.0",
-    "react": "^0.14.8||^15.4.0"
+    "react-dom": "^16.0.0",
+    "react": "^16.0.0"
   },
   "keywords": [
     "react",
@@ -84,53 +70,9 @@
   },
   "homepage": "https://github.com/react-melon/melon-calendar#readme",
   "dependencies": {
-    "melon": "^0.5.3",
-    "melon-core": "^0.4.1",
-    "moment": "^2.13.0"
-  },
-  "babel": {
-    "env": {
-      "dev": {
-        "presets": [
-          "es2015",
-          "react"
-        ],
-        "plugins": [
-          "transform-object-rest-spread",
-          "transform-class-properties"
-        ]
-      },
-      "test": {
-        "presets": [
-          "es2015",
-          "react"
-        ],
-        "plugins": [
-          "transform-object-rest-spread",
-          "transform-class-properties",
-          "istanbul"
-        ]
-      },
-      "production": {
-        "presets": [
-          [
-            "es2015",
-            {
-              "loose": true,
-              "modules": "umd"
-            }
-          ],
-          "react"
-        ],
-        "plugins": [
-          "transform-object-rest-spread",
-          "external-helpers",
-          "transform-class-properties",
-          "external-helpers-insert-require",
-          "transform-es3-property-literals",
-          "transform-es3-member-expression-literals"
-        ]
-      }
-    }
+    "melon": ">=0.6.0-0",
+    "melon-core": ">=0.5.2",
+    "moment": "^2.13.0",
+    "prop-types": "^15.6.0"
   }
 }

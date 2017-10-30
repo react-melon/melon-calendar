@@ -5,32 +5,21 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TestUtils from 'react-addons-test-utils';
-
+import TestUtils from 'react-dom/test-utils';
+import {shallow} from 'enzyme';
 import CalendarSelectorItem from '../../../src/calendar/SelectorItem';
 import then from '../../then';
 
 describe('CalendarSelectorItem', function () {
 
     it('work', function () {
-        const renderer = TestUtils.createRenderer();
         const date = new Date(2016, 11, 1);
-        renderer.render(
+        const wrapper = shallow(
             <CalendarSelectorItem date={date} mode="month" />
         );
-        const actualElement = renderer.getRenderOutput();
-        const expectedElement = (
-            <li
-                data-mode={'month'}
-                data-value={date}
-                onClick={() => {}}
-                className={'ui-calendar-selector-item'}>
-                <span>
-                    12月
-                </span>
-            </li>
-        );
-        expect(actualElement).toEqualJSX(expectedElement);
+        expect(wrapper.prop('data-mode')).toBe('month');
+        expect(wrapper.prop('data-value')).toBe(date);
+        expect(wrapper.children().at(0).text()).toBe('12月');
     });
 
 

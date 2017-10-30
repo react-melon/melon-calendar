@@ -83,7 +83,8 @@ describe('Calendar', () => {
     });
 
     it('defaultValue', done => {
-        component = mount(
+
+        let component = mount(
             <Calendar />
         );
 
@@ -92,13 +93,14 @@ describe('Calendar', () => {
         then(() => {
             const actions = document.querySelectorAll('.ui-button');
             expect(actions.length).toBe(2);
-            actions[1].click();
+            document.querySelector('.ui-button.variant-confirm').click();
         }).then(() => {
             expect(component.state('value')).toBe(moment(new Date()).format('YYYY-MM-DD'));
             component.unmount();
             component = null;
             done();
         });
+
     });
 
     it('autoConfirm', done => {

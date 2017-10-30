@@ -5,56 +5,34 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TestUtils from 'react-addons-test-utils';
-
+import {shallow} from 'enzyme';
+import TestUtils from 'react-dom/test-utils';
 import CalendarDay from '../../../src/calendar/Day';
 import then from '../../then';
 import * as dateUtil from '../../../src/util';
 
 describe('CalendarDay', function () {
 
-    let renderer;
-
-    beforeEach(() => {
-        renderer = TestUtils.createRenderer();
-    });
-
     it('dom work', function () {
-
         const date = dateUtil.addDays(new Date(), -1);
-        renderer.render(
+        const wrapper = shallow(
             <CalendarDay date={date} />
         );
-        const actualElement = renderer.getRenderOutput();
-        const expectedElement = (
-            <a
-                className="ui-calendar-day"
-                href="#"
-                onClick={function () {}} >
-                {date.getDate()}
-            </a>
-        );
-        expect(actualElement).toEqualJSX(expectedElement);
 
+        expect(wrapper.is('a')).toBe(true);
+        expect(wrapper.hasClass('ui-calendar-day')).toBe(true);
+        expect(wrapper.prop('href')).toBe('#');
+        expect(wrapper.text()).toEqual(date.getDate() + '');
     });
 
     it('dom className', function () {
 
         const date = new Date();
-        renderer.render(
+        const wrapper = shallow(
             <CalendarDay date={date} selected disabled />
         );
-        const actualElement = renderer.getRenderOutput();
-        const expectedElement = (
-            <a
-                className="ui-calendar-day variant-today state-disabled state-selected"
-                href="#"
-                disabled={true}
-                onClick={() => {}} >
-                {date.getDate()}
-            </a>
-        );
-        expect(actualElement).toEqualJSX(expectedElement);
+        expect(wrapper.prop('disabled')).toBe(true);
+        expect(wrapper.hasClass('state-disabled')).toBe(true);
 
     });
 
@@ -80,7 +58,10 @@ describe('CalendarDay', function () {
             expect(spy.calls.argsFor(0)[0]).toEqual({target: component, date});
             /* eslint-enable fecs-no-arguments */
 
-            component = ReactDOM.render(<CalendarDay date={date} onClick={spy} disabled/>, node);
+            component = ReactDOM.render(
+                <CalendarDay date={date} onClick={spy} disabled/>,
+                node
+            );
             TestUtils.Simulate.click(ReactDOM.findDOMNode(component));
         })
         .then(() => {

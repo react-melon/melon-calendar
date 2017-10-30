@@ -5,7 +5,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TestUtils from 'react-addons-test-utils';
+import TestUtils from 'react-dom/test-utils';
 
 import CalendarSelector from '../../../src/calendar/Selector';
 import CalendarSelectorItem from '../../../src/calendar/SelectorItem';

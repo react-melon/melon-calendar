@@ -3,7 +3,8 @@
  * @author cxtom(cxtom2008@gmail.com)
  */
 
-import React, {PropTypes, Component} from 'react';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import {create} from 'melon-core/classname/cxBuilder';
 import Item from './SelectorItem';

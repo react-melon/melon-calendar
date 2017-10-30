@@ -7,3 +7,4 @@ output
 coverage
 *.orig
 docs
+lib

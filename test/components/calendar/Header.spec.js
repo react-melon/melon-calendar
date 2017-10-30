@@ -4,28 +4,31 @@
  */
 
 import React from 'react';
-import {createRenderer} from 'react-addons-test-utils';
-
+import {shallow} from 'enzyme';
 import CalendarHeader from '../../../src/calendar/Header';
 import * as dateUtil from '../../../src/util';
 
 describe('CalendarHeader', function () {
 
     it('work', function () {
-        const renderer = createRenderer();
         const date = new Date();
-        renderer.render(
+        const wrapper = shallow(
             <CalendarHeader date={date} />
         );
-        let actualElement = renderer.getRenderOutput();
-        let expectedElement = (
-            <div className="ui-calendar-header">
-                <p className="ui-calendar-header-year">{date.getFullYear()}</p>
-                <p className="ui-calendar-header-week">{dateUtil.getDayOfWeek(date)}</p>
-                <p className="ui-calendar-header-date">{dateUtil.getShortMonth(date) + date.getDate() + '日'}</p>
-            </div>
+
+        expect(wrapper.hasClass('ui-calendar-header')).toBe(true);
+        expect(wrapper.children().length).toBe(3);
+        expect(wrapper.children().at(0).text()).toBe(date.getFullYear() + '');
+        expect(wrapper.children().at(0).hasClass('ui-calendar-header-year')).toBe(true);
+
+        expect(wrapper.children().at(1).text()).toBe(dateUtil.getDayOfWeek(date) + '');
+        expect(wrapper.children().at(1).hasClass('ui-calendar-header-week')).toBe(true);
+
+        expect(wrapper.children().at(2).text()).toBe(
+            dateUtil.getShortMonth(date) + date.getDate() + '日'
         );
-        expect(actualElement).toEqualJSX(expectedElement);
+        expect(wrapper.children().at(2).hasClass('ui-calendar-header-date')).toBe(true);
+
     });
 
 });
