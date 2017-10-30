@@ -18,3 +18,4 @@ example
 .fecsignore
 docs
 esdoc.json
+package-lock.json

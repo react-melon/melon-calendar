@@ -70,7 +70,7 @@
   },
   "homepage": "https://github.com/react-melon/melon-calendar#readme",
   "dependencies": {
-    "melon": ">=0.6.0-0",
+    "melon": ">=0.6.0-alpha.3",
     "melon-core": ">=0.5.2",
     "moment": "^2.13.0",
     "prop-types": "^15.6.0"
